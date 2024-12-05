@@ -152,6 +152,38 @@ for k in keys do;
     CPgenus17list[k] :=Gamma;
 end for;
 
+keys:=[k: k in Keys(CPgenus18list)];
+level:=[CPgenus18list[k]`N:k in keys];
+ParallelSort(~level,~keys);
+for k in keys do;
+    Gamma:=CPgenus18list[k];	
+	N:=Gamma`N;
+	SL2:=SL(2,Integers(N));
+	Gamma`H:=sub< SL2 | Gamma`gens cat [[-1,0,0,-1]]>;
+    CPgenus18list[k] :=Gamma;
+end for;
+
+keys:=[k: k in Keys(CPgenus19list)];
+level:=[CPgenus19list[k]`N:k in keys];
+ParallelSort(~level,~keys);
+for k in keys do;
+    Gamma:=CPgenus19list[k];	
+	N:=Gamma`N;
+	SL2:=SL(2,Integers(N));
+	Gamma`H:=sub< SL2 | Gamma`gens cat [[-1,0,0,-1]]>;
+    CPgenus19list[k] :=Gamma;
+end for;
+
+keys:=[k: k in Keys(CPgenus21list)];
+level:=[CPgenus21list[k]`N:k in keys];
+ParallelSort(~level,~keys);
+for k in keys do;
+    Gamma:=CPgenus21list[k];	
+	N:=Gamma`N;
+	SL2:=SL(2,Integers(N));
+	Gamma`H:=sub< SL2 | Gamma`gens cat [[-1,0,0,-1]]>;
+    CPgenus21list[k] :=Gamma;
+end for;
 
 keys:=[k: k in Keys(CPgenus2list)];
 level:=[CPgenus2list[k]`N:k in keys];
@@ -561,4 +593,86 @@ SL2:=SL(2,Integers(CPgenus17list[k]`N));
 end for;   
 
 // 128*8=1024 is the max level here.
+
+keys:=[k: k in Keys(CPgenus18list)];
+level:=[CPgenus18list[k]`N:k in keys];
+ParallelSort(~level,~keys);
+for k in keys do;
+SL2:=SL(2,Integers(CPgenus18list[k]`N));
+    N:= Normalizer(SL2,CPgenus18list[k]`H);
+    N1:=quo<N|CPgenus18list[k]`H>;
+    s:=[];
+    for n in N1 do;
+        x:=0;
+        t:=Factorisation(Order(n));
+        // checking if for every p|Order(n) does p|CPlist[k]`N
+        for p in t do;
+            if CPgenus18list[k]`N mod p[1] eq 0 then x:=x+1; end if;
+        end for;
+        if x eq #t then s:=s cat [Order(n)];end if;
+    end for;
+    b:=Lcm(s);
+    
+   
+    if ((CPgenus18list[k]`N) mod 2 eq 0 ) and ((CPgenus18list[k]`N) mod 4 ne 0) then
+        b:=2*b;
+    end if;
+    k;b;
+    print "...............";
+end for;   
+
+keys:=[k: k in Keys(CPgenus19list)];
+level:=[CPgenus19list[k]`N:k in keys];
+ParallelSort(~level,~keys);
+for k in keys do;
+SL2:=SL(2,Integers(CPgenus19list[k]`N));
+    N:= Normalizer(SL2,CPgenus19list[k]`H);
+    N1:=quo<N|CPgenus19list[k]`H>;
+    s:=[];
+    for n in N1 do;
+        x:=0;
+        t:=Factorisation(Order(n));
+        // checking if for every p|Order(n) does p|CPlist[k]`N
+        for p in t do;
+            if CPgenus19list[k]`N mod p[1] eq 0 then x:=x+1; end if;
+        end for;
+        if x eq #t then s:=s cat [Order(n)];end if;
+    end for;
+    b:=Lcm(s);
+    
+   
+    if ((CPgenus19list[k]`N) mod 2 eq 0 ) and ((CPgenus19list[k]`N) mod 4 ne 0) then
+        b:=2*b;
+    end if;
+    k;b;
+    print "...............";
+end for;   
+
+keys:=[k: k in Keys(CPgenus21list)];
+level:=[CPgenus21list[k]`N:k in keys];
+ParallelSort(~level,~keys);
+for k in keys do;
+SL2:=SL(2,Integers(CPgenus21list[k]`N));
+    N:= Normalizer(SL2,CPgenus21list[k]`H);
+    N1:=quo<N|CPgenus21list[k]`H>;
+    s:=[];
+    for n in N1 do;
+        x:=0;
+        t:=Factorisation(Order(n));
+        // checking if for every p|Order(n) does p|CPlist[k]`N
+        for p in t do;
+            if CPgenus21list[k]`N mod p[1] eq 0 then x:=x+1; end if;
+        end for;
+        if x eq #t then s:=s cat [Order(n)];end if;
+    end for;
+    b:=Lcm(s);
+    
+   
+    if ((CPgenus21list[k]`N) mod 2 eq 0 ) and ((CPgenus21list[k]`N) mod 4 ne 0) then
+        b:=2*b;
+    end if;
+    k;b;
+    print "...............";
+end for;   
+
 
