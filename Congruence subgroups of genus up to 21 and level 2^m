@@ -14,6 +14,9 @@ CPgenus13list:=AssociativeArray();
 CPgenus14list:=AssociativeArray();
 CPgenus15list:=AssociativeArray();
 CPgenus17list:=AssociativeArray();
+CPgenus18list:=AssociativeArray();
+CPgenus19list:=AssociativeArray();
+CPgenus21list:=AssociativeArray();
 
 
 CPgenus2list["8A2"]:= rec<CongSubgroup | N:=8,  label:="8A2", gens:=[[ 1, 4, 4, 1 ] , [ 3, 0, 4, 3 ] , [ 7, 4, 4, 7 ] ], index:=48>;
