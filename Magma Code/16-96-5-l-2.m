@@ -20,6 +20,25 @@ auts := Append(auts, S!s);
 end for;
 #auts eq #S;
 
+//There are three genus one quotients by an involution
+l := []; //list of genus 1 quotients by involutions
+m:= []; //in case Magma complains that genus 1 curves and elliptic curves can't be in the same list.
+for g in auts do
+if Order(g) eq 2 then
+AG := AutomorphismGroup(C,[g]);
+CG,prj := CurveQuotient(AG);prj;
+if Genus(CG) eq 1 then
+try
+l := Append(l,CG);
+catch e
+m := Append(m,CG);
+end try;
+end if;
+CG; Genus(CG);
+end if;
+print ".........";
+end for;
+
 /*
 There are 3 genus one quotients, all in l. 
 [
