@@ -59,7 +59,7 @@ x[2]*x[7] - x[6]*x[8],
 -x[5]*x[6] + x[4]*x[7],
 2*x[5]^2 - x[7]^2 - 8*x[5]*x[8] - 8*x[8]^2]);
 
-//Can't immediately find a point, so we intersect with a hyperplane
+//We can't immediately find a point, so we intersect with a hyperplane
 Points(C1 meet Scheme(AmbientSpace(C1),x[1]));
 
 //This produces a point
