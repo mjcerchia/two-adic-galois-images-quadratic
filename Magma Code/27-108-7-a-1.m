@@ -95,4 +95,7 @@ x[6]*x[7] - x[10]*x[11] - 9*x[12]^2,
 -x[9]*x[11] + x[8]*x[12],
 -x[11]^2 + x[10]*x[12]]);
 
-//We can't immediately find a point, so we look for a simpler model. 
+//We can't immediately find a point, so we intersect with hyperplanes.
+pt := C1!Points(C1 meet Scheme(AmbientSpace(C1),x[3]))[1];
+E := EllipticCurve(C1,pt);
+Rank(E); //1
