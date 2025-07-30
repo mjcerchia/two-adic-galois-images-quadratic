@@ -8,7 +8,7 @@ We find there are four genus one quotients by an involution.
 
 ******************************************************************************/
 P<x,y,z> := ProjectiveSpace(Rationals(),2);
-C := Curve(P,[2*x^3*y + x^3*z + 3*x^2*y*z + 2*x*y^3 + 3*x*y^2*z - 2*x*z^3 + y^3*z - 2*y*z^3 - z^4]);
+C := Curve(P,[778*x^6 - 2294*x^5*y + 547*x^5*z + 814*x^4*y^2 + 3367*x^4*y*z - 3513*x^4*z^2 - 962*x^3*y^3 - 14023*x^3*y^2*z + 18907*x^3*y*z^2 - 8863*x^3*z^3 - 259*x^2*y^3*z - 24235*x^2*y^2*z^2 + 31413*x^2*y*z^3 - 8564*x^2*z^4 - 11063*x*y^3*z^2 - 24013*x*y^2*z^3 + 19832*x*y*z^4 - 4944*x*z^5 - 3145*y^3*z^3 - 4292*y^2*z^4 + 5328*y*z^5 - 1664*z^6]);
 
 S := AutomorphismGroup(C); 
 auts := [];
