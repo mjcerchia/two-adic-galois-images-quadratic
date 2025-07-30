@@ -1,4 +1,4 @@
-Is this actually bielliptic?
+Is this actually bielliptic? There's a rank 1 quotient of a singular model 
 
 /****************************************************************************** 
 Here is a summary of the argument.
