@@ -1,3 +1,4 @@
+Is this actually bielliptic?
 
 /****************************************************************************** 
 Here is a summary of the argument.
