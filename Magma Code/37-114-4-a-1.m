@@ -113,4 +113,8 @@ x^3 - 14224201279478138869386111025040519028063317452888544517*x^2*y -
 E := EllipticCurve(C2);
 
 //Magma realizes C2 as an elliptic curve, but it is difficult to find a point or compute the rank. 
+//Instead, we show that it is isomorphic to a rank 1 elliptic curve.
+
+E1 := EllipticCurve([1, -1, 0, 3166, -59359]);
+IsIsomorphic(E,E1); //true
     
