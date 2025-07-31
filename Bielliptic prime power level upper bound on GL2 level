@@ -546,4 +546,14 @@ gl2Level(G);
 print "...";
 end for; // only level 64
 
+// checking 64A9
+N:=512;
+H:=CPbiellipticlist["64A9"]`H;
+red:=hom<SL(2,Integers(N))->SL(2,Integers(64))|[SL(2,Integers(64))!SL(2,Integers(N)).i:i in [1..#Generators(SL(2,Integers(N)))]]>;
+Hred:=H@@red;
+BaseRing(Hred);
+for G in gl2QImagesFromSL2(Hred) do;
+gl2Level(G);
+print "...";
+end for; // only level 64
 
