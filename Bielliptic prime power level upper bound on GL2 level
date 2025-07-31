@@ -459,4 +459,91 @@ end for;
 1
 ............... */ // Upper bound is N*b
 
+function gl2DetIndex(H)
+    M,pi:=MultiplicativeGroup(BaseRing(H));
+    return Index(M,sub<M|[Inverse(pi)(Determinant(h)):h in Generators(H)]>);
+end function;
+
+
+function gl2Level(G)
+    idx:=Index(GL(2,BaseRing(G)),G);
+    if idx eq 1 then return 1; end if;
+    P:=PrimeDivisors(#BaseRing(G));
+    if #P eq 1 then
+        m:=P[1];
+        while Index(GL(2,Integers(m)),ChangeRing(G,Integers(m))) lt idx do m *:=P[1]; end while;
+        return m;
+    end if;
+    return Min([m:m in Divisors(#BaseRing(G)) | m gt 1 and Index(GL(2,Integers(m)),ChangeRing(G,Integers(m))) eq idx]);
+end function;
+
+
+function gl2QImagesFromSL2(H)
+    GL2:=GL(2,BaseRing(H));
+    SL2:=SL(2,BaseRing(H));
+    assert H subset SL2;
+    N:=Normalizer(GL2,H);
+    Q,pi:=quo<N|H>;
+    // we are interested only in subgroups of Q that are isomorphic to the multiplicative group of Z/nZ
+    m:=#MultiplicativeGroup(BaseRing(H));
+    S:=[Inverse(pi)(K`subgroup) : K in Subgroups(Q:OrderEqual:=m,IsAbelian:=true)];
+    return [G: G in S | gl2DetIndex(G) eq 1 ];
+end function;
+
+// checking 49A3 
+
+N:=49*7;
+H:=CPbiellipticlist["49A3"]`H;
+red:=hom<SL(2,Integers(N))->SL(2,Integers(49))|[SL(2,Integers(49))!SL(2,Integers(N)).i:i in [1..#Generators(SL(2,Integers(N)))]]>;
+Hred:=H@@red;
+BaseRing(Hred);
+for G in gl2QImagesFromSL2(Hred) do;
+gl2Level(G);
+print "...";
+end for; // only level 49
+
+// checking 64B3 
+N:=512;
+H:=CPbiellipticlist["64B3"]`H;
+red:=hom<SL(2,Integers(N))->SL(2,Integers(64))|[SL(2,Integers(64))!SL(2,Integers(N)).i:i in [1..#Generators(SL(2,Integers(N)))]]>;
+Hred:=H@@red;
+BaseRing(Hred);
+for G in gl2QImagesFromSL2(Hred) do;
+gl2Level(G);
+print "...";
+end for; // only level 64
+
+// checking 64A5
+N:=512;
+H:=CPbiellipticlist["64A5"]`H;
+red:=hom<SL(2,Integers(N))->SL(2,Integers(64))|[SL(2,Integers(64))!SL(2,Integers(N)).i:i in [1..#Generators(SL(2,Integers(N)))]]>;
+Hred:=H@@red;
+BaseRing(Hred);
+for G in gl2QImagesFromSL2(Hred) do;
+gl2Level(G);
+print "...";
+end for; // only level 64
+
+// checking 64B5
+N:=512;
+H:=CPbiellipticlist["64B5"]`H;
+red:=hom<SL(2,Integers(N))->SL(2,Integers(64))|[SL(2,Integers(64))!SL(2,Integers(N)).i:i in [1..#Generators(SL(2,Integers(N)))]]>;
+Hred:=H@@red;
+BaseRing(Hred);
+for G in gl2QImagesFromSL2(Hred) do;
+gl2Level(G);
+print "...";
+end for; // only level 64
+
+// checking 64C5
+N:=512;
+H:=CPbiellipticlist["64C5"]`H;
+red:=hom<SL(2,Integers(N))->SL(2,Integers(64))|[SL(2,Integers(64))!SL(2,Integers(N)).i:i in [1..#Generators(SL(2,Integers(N)))]]>;
+Hred:=H@@red;
+BaseRing(Hred);
+for G in gl2QImagesFromSL2(Hred) do;
+gl2Level(G);
+print "...";
+end for; // only level 64
+
 
