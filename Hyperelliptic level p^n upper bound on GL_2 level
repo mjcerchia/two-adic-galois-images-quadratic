@@ -1,0 +1,561 @@
+CongSubgroup := recformat<N:RngIntElt, label:MonStgElt, gens:SeqEnum, index:RngIntElt, H:GrpMat>;
+
+CPgenus2list:=AssociativeArray();
+CPgenus3list:=AssociativeArray();
+CPgenus4list:=AssociativeArray();
+CPgenus5list:=AssociativeArray();
+CPgenus6list:=AssociativeArray();
+CPgenus7list:=AssociativeArray();
+
+CPgenus2list["8A2"]:= rec<CongSubgroup | N:=8,  label:="8A2", gens:=[[ 1, 4, 4, 1 ] , [ 3, 0, 4, 3 ] , [ 7, 4, 4, 7 ] ], index:=48>;
+CPgenus2list["8B2"]:= rec<CongSubgroup | N:=8,  label:="8B2", gens:=[[ 1, 4, 4, 1 ] , [ 4, 1, 7, 0 ] , [ 7, 4, 4, 7 ] ], index:=48>;
+CPgenus2list["8C2"]:= rec<CongSubgroup | N:=8,  label:="8C2", gens:=[[ 0, 1, 7, 0 ] , [ 7, 0, 0, 7 ] ], index:=96>;
+CPgenus2list["9A2"]:= rec<CongSubgroup | N:=9,  label:="9A2", gens:=[[ 1, 6, 3, 1 ] , [ 7, 0, 6, 4 ] , [ 8, 0, 0, 8 ] ], index:=36>;
+CPgenus2list["9B2"]:= rec<CongSubgroup | N:=9,  label:="9B2", gens:=[[ 1, 8, 8, 2 ] , [ 5, 3, 3, 2 ] , [ 7, 3, 3, 4 ] ], index:=54>;
+CPgenus2list["11A2"]:= rec<CongSubgroup | N:=11,  label:="11A2", gens:=[[ 1, 8, 7, 2 ] , [ 8, 5, 9, 3 ] , [ 10, 0, 0, 10 ]], index:=66>;
+CPgenus2list["13A2"]:= rec<CongSubgroup | N:=13,  label:="13A2", gens:=[[ 6, 11, 6, 9 ] , [ 11, 9, 12, 4 ] , [ 12, 0, 0, 12 ]], index:=84>;
+CPgenus2list["16A2"]:= rec<CongSubgroup | N:=16,  label:="16A2", gens:=[[ 0, 7, 9, 8 ] , [ 1, 8, 8, 1 ] , [ 1, 10, 10, 5 ] , [ 5, 4, 4, 13 ] , [ 9, 0, 0, 9 ] , [ 9, 8, 8, 9 ] , [ 11, 6, 6, 15 ] , [ 15, 0, 0, 15 ] , [ 15, 12, 12, 15 ] ], index:=24>;
+CPgenus2list["16B2"]:= rec<CongSubgroup | N:=16,  label:="16B2", gens:=[[ 0, 13, 11, 12 ] , [ 1, 8, 8, 1 ] , [ 5, 4, 4, 13 ] , [ 5, 10, 10, 1 ] , [ 7, 4, 12, 7 ] , [ 7, 6, 14, 3 ] , [ 9, 8, 8, 9 ] , [ 11, 14, 14, 15 ] , [ 15, 12, 4, 15 ] ], index:=24>;
+CPgenus2list["16C2"]:= rec<CongSubgroup | N:=16,  label:="16C2", gens:=[[ 1, 4, 0, 1 ] , [ 1, 8, 0, 1 ] , [ 3, 12, 8, 11 ] , [ 5, 14, 0, 13 ] , [ 9, 0, 0, 9 ] , [ 9, 6, 8, 9 ] , [ 9, 8, 0, 9 ] ], index:=48>;
+CPgenus2list["16D2"]:= rec<CongSubgroup | N:=16,  label:="16D2", gens:=[[ 1, 8, 8, 1 ] , [ 4, 7, 9, 8 ] , [ 5, 0, 0, 13 ] , [ 8, 7, 9, 12 ] , [ 9, 8, 8, 9 ] , [ 15, 4, 12, 15 ] ], index:=48>;
+CPgenus2list["16E2"]:= rec<CongSubgroup | N:=16,  label:="16E2", gens:=[[ 3, 8, 0, 11 ] , [ 7, 12, 4, 7 ] , [ 9, 0, 0, 9 ] , [ 9, 8, 8, 9 ] , [ 12, 9, 7, 12 ] , [ 15, 0, 0, 15 ] ], index:=48>;
+CPgenus2list["16F2"]:= rec<CongSubgroup | N:=16,  label:="16F2", gens:=[[ 1, 8, 8, 1 ] , [ 9, 8, 8, 9 ] , [ 11, 2, 10, 15 ] , [ 13, 4, 4, 5 ] , [ 13, 12, 12, 5 ] , [ 14, 11, 1, 2 ] , [ 15, 0, 0, 15 ] ], index:=48>;
+CPgenus2list["16G2"]:= rec<CongSubgroup | N:=16,  label:="16G2", gens:=[[ 0, 1, 15, 0 ] , [ 0, 9, 7, 0 ] , [ 2, 11, 11, 13 ] , [ 8, 5, 3, 8 ] , [ 8, 13, 11, 8 ] , [ 9, 0, 0, 9 ] , [ 15, 0, 0, 15 ]], index:=64>;
+CPgenus2list["16H2"]:= rec<CongSubgroup | N:=16,  label:="16H2", gens:=[	[ 0, 1, 15, 8 ] , [ 1, 8, 8, 1 ] , [ 7, 0, 8, 7 ] , [ 9, 0, 8, 9 ] , [ 9, 8, 0, 9 ] , [ 10, 3, 11, 5 ] , [ 15, 0, 0, 15 ]], index:=64>;
+CPgenus2list["16I2"]:= rec<CongSubgroup | N:=16,  label:="16I2", gens:=[	[ 1, 0, 4, 1 ] , [ 1, 0, 8, 1 ] , [ 1, 4, 4, 1 ] , [ 1, 8, 8, 1 ] , [ 15, 8, 8, 15 ]], index:=96>;
+CPgenus2list["16J2"]:= rec<CongSubgroup | N:=16,  label:="16J2", gens:=[	[ 1, 2, 14, 13 ] , [ 2, 9, 7, 0 ] , [ 5, 4, 12, 13 ] , [ 9, 8, 8, 9 ] , [ 11, 10, 6, 7 ] , [ 13, 14, 2, 1 ]], index:=96>;
+CPgenus2list["16K2"]:= rec<CongSubgroup | N:=16,  label:="16K2", gens:=[	[ 1, 8, 0, 1 ] , [ 3, 10, 0, 11 ] , [ 9, 12, 0, 9 ] , [ 13, 2, 8, 5 ] , [ 13, 6, 0, 5 ] , [ 13, 10, 8, 5 ]], index:=96>;
+CPgenus2list["16L2"]:= rec<CongSubgroup | N:=16,  label:="16L2", gens:=[	[ 0, 1, 15, 0 ] , [ 0, 15, 1, 0 ] , [ 5, 4, 12, 13 ] , [ 9, 0, 0, 9 ] , [ 9, 8, 8, 9 ] , [ 15, 0, 0, 15 ] , [ 15, 8, 8, 15 ]], index:=96>;
+CPgenus2list["19A2"]:= rec<CongSubgroup | N:=19,  label:="19A2", gens:=[[ 11, 18, 16, 9 ] , [ 14, 3, 4, 5 ] , [ 18, 0, 0, 18 ]], index:=57>;
+CPgenus2list["23A2"]:= rec<CongSubgroup | N:=23,  label:="23A2", gens:=[[ 12, 14, 4, 22 ] , [ 21, 1, 14, 4 ] , [ 22, 0, 0, 22 ]], index:=24>;
+CPgenus2list["25A2"]:= rec<CongSubgroup | N:=25,  label:="25A2", gens:=[[ 6, 10, 20, 21 ] , [ 9, 11, 18, 11 ] , [ 10, 2, 22, 12 ] , [ 11, 0, 10, 16 ] , [ 24, 0, 0, 24 ] ], index:=30>;
+CPgenus2list["25B2"]:= rec<CongSubgroup | N:=25,  label:="25B2", gens:=[[ 6, 10, 20, 21 ] , [ 7, 13, 18, 5 ] , [ 9, 11, 18, 11 ] , [ 11, 0, 10, 16 ] , [ 24, 0, 0, 24 ] ], index:=30>;
+CPgenus2list["25C2"]:= rec<CongSubgroup | N:=25,  label:="25C2", gens:=[[ 6, 10, 20, 21 ] , [ 9, 11, 18, 11 ] , [ 11, 0, 10, 16 ] , [ 12, 8, 23, 5 ] , [ 24, 0, 0, 24 ]], index:=30>;
+CPgenus2list["25D2"]:= rec<CongSubgroup | N:=25,  label:="25D2", gens:=[[ 4, 19, 9, 18 ] , [ 6, 10, 20, 21 ] , [ 9, 11, 18, 11 ] , [ 11, 0, 10, 16 ] , [ 24, 0, 0, 24 ]], index:=30>;
+CPgenus2list["25E2"]:= rec<CongSubgroup | N:=25,  label:="25E2", gens:=[[ 2, 4, 15, 18 ] , [ 9, 18, 13, 15 ] , [ 14, 5, 0, 9 ] , [ 16, 15, 15, 11 ] , [ 21, 0, 15, 6 ]], index:=50>;
+CPgenus2list["25F2"]:= rec<CongSubgroup | N:=25,  label:="25F2", gens:=[[ 1, 0, 10, 1 ] , [ 6, 15, 5, 21 ] , [ 13, 14, 15, 22 ] , [ 19, 10, 0, 4 ] , [ 22, 20, 17, 3 ]], index:=75>;
+CPgenus2list["27A2"]:= rec<CongSubgroup | N:=27,  label:="27A2", gens:=[[ 1, 0, 18, 1 ] , [ 10, 0, 0, 19 ] , [ 10, 0, 24, 19 ] , [ 13, 9, 1, 7 ] , [ 22, 0, 0, 16 ] , [ 26, 0, 0, 26 ] ], index:=36>;
+CPgenus2list["27B2"]:= rec<CongSubgroup | N:=27,  label:="27B2", gens:=[[ 1, 0, 18, 1 ] , [ 1, 18, 6, 1 ] , [ 10, 0, 9, 19 ] , [ 13, 12, 8, 22 ] , [ 19, 0, 0, 10 ] , [ 19, 3, 17, 7 ] , [ 26, 0, 0, 26 ] ], index:=36>;
+CPgenus2list["29A2"]:= rec<CongSubgroup | N:=29,  label:="29A2", gens:=[[ 2, 13, 13, 27 ] , [ 2, 19, 3, 0 ] , [ 3, 20, 20, 8 ] , [ 28, 0, 0, 28 ]], index:=30>;
+CPgenus2list["31A2"]:= rec<CongSubgroup | N:=31,  label:="31A2", gens:=[[ 6, 25, 3, 23 ] , [ 14, 9, 3, 2 ] , [ 17, 3, 1, 13 ] , [ 30, 0, 0, 30 ]], index:=32>;
+CPgenus2list["32A2"]:= rec<CongSubgroup | N:=32,  label:="32A2", gens:=[		[ 1, 16, 16, 1 ] , [ 1, 28, 28, 17 ] , [ 5, 20, 12, 29 ] , [ 9, 8, 24, 25 ] , [ 9, 24, 8, 25 ] , [ 11, 26, 6, 23 ] , [ 13, 4, 12, 21 ] , [ 17, 10, 6, 13 ] , [ 17, 16, 16, 17 ] , [ 18, 21, 3, 0 ] , [ 19, 26, 22, 15 ] , [ 23, 10, 30, 27 ]], index:=48>;
+CPgenus2list["32B2"]:= rec<CongSubgroup | N:=32,  label:="32B2", gens:=[		[ 1, 16, 0, 1 ] , [ 1, 24, 0, 1 ] , [ 9, 8, 16, 25 ] , [ 17, 12, 0, 17 ] , [ 17, 16, 0, 17 ] , [ 17, 20, 0, 17 ] , [ 21, 0, 24, 29 ] , [ 21, 6, 24, 13 ] , [ 23, 10, 16, 7 ] , [ 25, 8, 16, 9 ] , [ 29, 28, 8, 21 ]], index:=96>;
+CPgenus2list["32C2"]:= rec<CongSubgroup | N:=32,  label:="32C2", gens:=[		[ 1, 18, 14, 29 ] , [ 1, 26, 6, 29 ] , [ 5, 14, 18, 25 ] , [ 5, 28, 4, 29 ] , [ 9, 8, 24, 25 ] , [ 11, 26, 6, 23 ] , [ 17, 0, 0, 17 ] , [ 17, 16, 16, 17 ] , [ 21, 20, 12, 13 ] , [ 28, 13, 19, 2 ]], index:=96>;
+CPgenus2list["37A2"]:= rec<CongSubgroup | N:=37,  label:="37A2", gens:=[[ 2, 18, 18, 33 ] , [ 17, 1, 2, 35 ] , [ 17, 4, 8, 15 ] , [ 19, 2, 4, 18 ] , [ 36, 0, 0, 36 ]], index:=38>;
+CPgenus2list["64A2"]:= rec<CongSubgroup | N:=64,  label:="64A2", gens:=[		[ 1, 32, 32, 1 ] , [ 1, 48, 48, 1 ] , [ 9, 48, 0, 57 ] , [ 9, 56, 40, 57 ] , [ 13, 60, 36, 53 ] , [ 17, 48, 16, 49 ] , [ 21, 2, 22, 57 ] , [ 25, 56, 8, 41 ] , [ 29, 44, 52, 37 ] , [ 33, 32, 32, 33 ] , [ 39, 62, 18, 27 ] , [ 42, 29, 59, 24 ] , [ 55, 16, 0, 7 ] , [ 55, 46, 34, 11 ]], index:=96>;
+
+
+CPgenus3list["8B3"]:= rec<CongSubgroup | N:=8,  label:="8B3", gens:=[		[ 3, 4, 0, 3 ] , [ 5, 4, 0, 5 ] , [ 7, 0, 0, 7 ]], index:=96>;
+CPgenus3list["16B3"]:= rec<CongSubgroup | N:=16,  label:="16B3", gens:=[[ 1, 8, 0, 1 ] , [ 1, 12, 8, 1 ] , [ 3, 10, 4, 3 ] , [ 7, 10, 12, 15 ] , [ 9, 0, 0, 9 ] , [ 9, 6, 4, 1 ] , [ 9, 8, 0, 9 ]], index:=48>;
+CPgenus3list["16C3"]:= rec<CongSubgroup | N:=16,  label:="16C3", gens:=[[ 5, 12, 12, 13 ] , [ 7, 12, 12, 7 ] , [ 9, 0, 0, 9 ] , [ 9, 8, 8, 9 ] , [ 12, 9, 7, 12 ] , [ 15, 0, 0, 15 ]], index:=48>;
+CPgenus3list["16D3"]:= rec<CongSubgroup | N:=16,  label:="16D3", gens:=[[ 1, 8, 0, 1 ] , [ 1, 12, 8, 1 ] , [ 5, 8, 0, 13 ] , [ 7, 10, 12, 15 ] , [ 9, 0, 0, 9 ] , [ 9, 6, 4, 1 ] , [ 9, 8, 0, 9 ]], index:=48>;
+CPgenus3list["16E3"]:= rec<CongSubgroup | N:=16,  label:="16E3", gens:=[[ 1, 8, 8, 1 ] , [ 5, 0, 8, 13 ] , [ 5, 12, 12, 13 ] , [ 8, 11, 13, 4 ] , [ 9, 8, 8, 9 ] , [ 15, 4, 12, 15 ]], index:=48>;
+CPgenus3list["16F3"]:= rec<CongSubgroup | N:=16,  label:="16F3", gens:=[[ 1, 8, 8, 1 ] , [ 2, 11, 1, 6 ] , [ 9, 8, 8, 9 ] , [ 11, 6, 6, 15 ] , [ 11, 14, 14, 15 ] , [ 13, 12, 12, 5 ] , [ 15, 0, 0, 15 ] , [ 15, 2, 2, 11 ]], index:=48>;
+CPgenus3list["16I3"]:= rec<CongSubgroup | N:=16,  label:="16I3", gens:=[[ 7, 12, 4, 7 ] , [ 9, 0, 0, 9 ] , [ 9, 8, 8, 9 ] , [ 13, 0, 0, 5 ] , [ 15, 4, 12, 15 ] , [ 15, 8, 8, 15 ]], index:=96>;
+CPgenus3list["16J3"]:= rec<CongSubgroup | N:=16,  label:="16J3", gens:=[[ 1, 8, 0, 1 ] , [ 1, 12, 0, 1 ] , [ 9, 12, 0, 9 ] , [ 13, 2, 0, 5 ] , [ 13, 10, 0, 5 ] , [ 15, 4, 0, 15 ]], index:=96>;
+CPgenus3list["16M3"]:= rec<CongSubgroup | N:=16,  label:="16M3", gens:=[[ 1, 8, 8, 1 ] , [ 5, 4, 4, 13 ] , [ 7, 8, 8, 7 ] , [ 8, 7, 9, 8 ] , [ 9, 8, 8, 9 ] , [ 13, 4, 4, 5 ] , [ 15, 8, 8, 15 ]], index:=96>;
+CPgenus3list["16S3"]:= rec<CongSubgroup | N:=16,  label:="16S3", gens:=[[ 5, 4, 4, 13 ] , [ 9, 6, 6, 13 ] , [ 9, 8, 8, 9 ] , [ 14, 3, 9, 2 ] , [ 15, 0, 0, 15 ]], index:=96>;
+CPgenus3list["32B3"]:= rec<CongSubgroup | N:=32,  label:="32B3", gens:=[[ 1, 16, 16, 1 ] , [ 5, 28, 20, 29 ] , [ 9, 22, 18, 5 ] , [ 11, 2, 30, 23 ] , [ 13, 22, 10, 17 ] , [ 17, 4, 4, 1 ] , [ 17, 16, 16, 17 ] , [ 21, 4, 28, 13 ] , [ 25, 24, 8, 9 ] , [ 27, 30, 26, 23 ] , [ 29, 8, 16, 21 ] , [ 30, 5, 27, 28 ]], index:=48>;
+CPgenus3list["32C3"]:= rec<CongSubgroup | N:=32,  label:="32C3", gens:=[[ 1, 16, 16, 1 ] , [ 5, 28, 20, 29 ] , [ 9, 22, 2, 5 ] , [ 11, 2, 30, 23 ] , [ 13, 22, 10, 17 ] , [ 17, 4, 20, 1 ] , [ 17, 16, 16, 17 ] , [ 21, 4, 28, 13 ] , [ 25, 24, 8, 9 ] , [ 27, 30, 10, 23 ] , [ 29, 8, 0, 21 ] , [ 30, 5, 27, 28 ]], index:=48>;
+CPgenus3list["32D3"]:= rec<CongSubgroup | N:=32,  label:="32D3", gens:=[[ 0, 5, 19, 0 ] , [ 1, 8, 8, 1 ] , [ 1, 16, 16, 1 ] , [ 9, 6, 6, 29 ] , [ 9, 8, 8, 25 ] , [ 13, 6, 6, 25 ] , [ 13, 18, 18, 25 ] , [ 17, 16, 16, 17 ] , [ 21, 4, 4, 13 ] , [ 31, 0, 0, 31 ]], index:=48>;
+CPgenus3list["32H3"]:= rec<CongSubgroup | N:=32,  label:="32H3", gens:=[[ 1, 8, 24, 1 ] , [ 1, 16, 16, 1 ] , [ 1, 24, 8, 1 ] , [ 9, 4, 12, 9 ] , [ 11, 6, 22, 15 ] , [ 11, 14, 14, 15 ] , [ 15, 2, 2, 11 ] , [ 17, 16, 16, 17 ] , [ 24, 5, 19, 24 ] , [ 25, 24, 24, 9 ] , [ 29, 28, 28, 5 ] , [ 31, 16, 16, 31 ]], index:=48>;
+CPgenus3list["32K3"]:= rec<CongSubgroup | N:=32,  label:="32K3", gens:=[[ 1, 16, 0, 1 ] , [ 5, 16, 0, 13 ] , [ 13, 30, 8, 21 ] , [ 17, 0, 0, 17 ] , [ 17, 4, 16, 17 ] , [ 17, 24, 0, 17 ] , [ 19, 26, 24, 11 ] , [ 21, 12, 16, 29 ] , [ 25, 0, 0, 9 ] , [ 25, 24, 0, 9 ] , [ 25, 28, 16, 9 ]], index:=96>;
+CPgenus3list["32M3"]:= rec<CongSubgroup | N:=32,  label:="32M3", gens:=[[ 5, 12, 4, 29 ] , [ 5, 30, 18, 25 ] , [ 8, 25, 7, 6 ] , [ 9, 8, 24, 25 ] , [ 11, 26, 6, 23 ] , [ 17, 0, 0, 17 ] , [ 17, 16, 16, 17 ] , [ 21, 20, 12, 13 ] , [ 21, 28, 20, 13 ] , [ 28, 29, 3, 18 ] , [ 30, 13, 19, 20 ]], index:=96>;
+CPgenus3list["41A3"]:= rec<CongSubgroup | N:=41,  label:="41A3", gens:=[[ 3, 3, 26, 40 ] , [ 19, 15, 36, 22 ] , [ 30, 25, 19, 35 ] , [ 30, 39, 28, 5 ] , [ 40, 0, 0, 40 ]], index:=42>;
+CPgenus3list["64A3"]:= rec<CongSubgroup | N:=64,  label:="64A3", gens:=[[ 1, 32, 32, 1 ] , [ 5, 36, 28, 61 ] , [ 9, 8, 56, 57 ] , [ 17, 16, 48, 49 ] , [ 17, 50, 46, 45 ] , [ 27, 2, 46, 39 ] , [ 29, 26, 46, 17 ] , [ 33, 0, 0, 33 ] , [ 33, 32, 32, 33 ] , [ 35, 18, 46, 31 ] , [ 36, 63, 9, 30 ] , [ 53, 4, 28, 13 ] , [ 58, 61, 59, 8 ] , [ 59, 50, 30, 7 ]], index:=96>;
+
+
+CPgenus4list["25A4"]:= rec<CongSubgroup | N:=25,  label:="25A4", gens:=[[ 4, 5, 0, 19 ] , [ 11, 5, 5, 16 ] , [ 18, 1, 1, 14 ] , [ 21, 20, 0, 6 ]], index:=60>;
+CPgenus4list["25D4"]:= rec<CongSubgroup | N:=25,  label:="25D4", gens:=[[ 4, 0, 5, 19 ] , [ 16, 0, 15, 11 ] , [ 16, 20, 20, 11 ] , [ 24, 14, 9, 23 ]], index:=60>;
+CPgenus4list["32B4"]:= rec<CongSubgroup | N:=32,  label:="32B4", gens:=[[ 1, 8, 24, 1 ] , [ 1, 16, 16, 1 ] , [ 3, 2, 10, 7 ] , [ 7, 28, 20, 7 ] , [ 13, 20, 4, 21 ] , [ 13, 24, 0, 5 ] , [ 17, 16, 16, 17 ] , [ 18, 13, 31, 26 ] , [ 24, 21, 3, 20 ] , [ 25, 8, 8, 9 ] , [ 30, 5, 23, 22 ]
+ ], index:=48>;
+CPgenus4list["47A4"]:= rec<CongSubgroup | N:=47,  label:="47A4", gens:=[[ 40, 11, 1, 5 ] , [ 41, 3, 7, 12 ] , [ 46, 0, 0, 46 ]], index:=48>;
+
+
+CPgenus5list["16G5"]:= rec<CongSubgroup | N:=16,  label:="16G5", gens:=[[ 1, 8, 8, 1 ] , [ 5, 4, 4, 13 ] , [ 7, 8, 8, 7 ] , [ 9, 8, 8, 9 ] , [ 12, 1, 15, 12 ] , [ 13, 4, 4, 5 ] , [ 15, 8, 8, 15 ]], index:=96>;
+CPgenus5list["59A5"]:= rec<CongSubgroup | N:=59,  label:="59A5", gens:=[[ 0, 47, 5, 16 ] , [ 27, 43, 57, 34 ] , [ 58, 0, 0, 58 ]], index:=60>;
+
+
+CPgenus6list["71A6"]:= rec<CongSubgroup | N:=71,  label:="71A6", gens:=[[ 6, 17, 18, 63 ] , [ 50, 70, 61, 13 ] , [ 68, 42, 65, 60 ] , [ 70, 0, 0, 70 ]], index:=72>;
+
+
+CPgenus7list["32E7"]:= rec<CongSubgroup | N:=32,  label:="32E7", gens:=[[ 1, 16, 0, 1 ] , [ 7, 0, 0, 23 ] , [ 9, 0, 0, 25 ] , [ 9, 4, 24, 25 ] , [ 13, 8, 0, 5 ] , [ 17, 0, 0, 17 ] , [ 17, 8, 16, 17 ] , [ 21, 16, 16, 29 ] , [ 25, 0, 0, 9 ] , [ 25, 10, 12, 1 ]], index:=96>;
+CPgenus7list["64D7"]:= rec<CongSubgroup | N:=64,  label:="64D7", gens:=[[ 1, 24, 24, 1 ] , [ 1, 32, 32, 1 ] , [ 1, 48, 48, 1 ] , [ 1, 54, 50, 13 ] , [ 3, 58, 6, 31 ] , [ 9, 40, 24, 57 ] , [ 10, 1, 31, 48 ] , [ 13, 52, 60, 53 ] , [ 17, 16, 48, 49 ] , [ 33, 32, 32, 33 ] , [ 37, 28, 52, 29 ] , [ 37, 52, 12, 29 ] , [ 41, 54, 34, 37 ] , [ 57, 12, 44, 25 ]], index:=96>;
+
+keys:=[k: k in Keys(CPgenus2list)];
+level:=[CPgenus2list[k]`N:k in keys];
+ParallelSort(~level,~keys);
+for k in keys do;
+    Gamma:=CPgenus2list[k];	
+	N:=Gamma`N;
+	SL2:=SL(2,Integers(N));
+	Gamma`H:=sub< SL2 | Gamma`gens cat [[-1,0,0,-1]]>;
+    CPgenus2list[k] :=Gamma;
+end for;
+
+keys:=[k: k in Keys(CPgenus3list)];
+level:=[CPgenus3list[k]`N:k in keys];
+ParallelSort(~level,~keys);
+for k in keys do;
+    Gamma:=CPgenus3list[k];	
+	N:=Gamma`N;
+	SL2:=SL(2,Integers(N));
+	Gamma`H:=sub< SL2 | Gamma`gens cat [[-1,0,0,-1]]>;
+    CPgenus3list[k] :=Gamma;
+end for;
+
+keys:=[k: k in Keys(CPgenus4list)];
+level:=[CPgenus4list[k]`N:k in keys];
+ParallelSort(~level,~keys);
+for k in keys do;
+    Gamma:=CPgenus4list[k];	
+	N:=Gamma`N;
+	SL2:=SL(2,Integers(N));
+	Gamma`H:=sub< SL2 | Gamma`gens cat [[-1,0,0,-1]]>;
+    CPgenus4list[k] :=Gamma;
+end for;
+
+keys:=[k: k in Keys(CPgenus5list)];
+level:=[CPgenus5list[k]`N:k in keys];
+ParallelSort(~level,~keys);
+for k in keys do;
+    Gamma:=CPgenus5list[k];	
+	N:=Gamma`N;
+	SL2:=SL(2,Integers(N));
+	Gamma`H:=sub< SL2 | Gamma`gens cat [[-1,0,0,-1]]>;
+    CPgenus5list[k] :=Gamma;
+end for;
+
+keys:=[k: k in Keys(CPgenus6list)];
+level:=[CPgenus6list[k]`N:k in keys];
+ParallelSort(~level,~keys);
+for k in keys do;
+    Gamma:=CPgenus6list[k];	
+	N:=Gamma`N;
+	SL2:=SL(2,Integers(N));
+	Gamma`H:=sub< SL2 | Gamma`gens cat [[-1,0,0,-1]]>;
+    CPgenus6list[k] :=Gamma;
+end for;
+
+keys:=[k: k in Keys(CPgenus7list)];
+level:=[CPgenus7list[k]`N:k in keys];
+ParallelSort(~level,~keys);
+for k in keys do;
+    Gamma:=CPgenus7list[k];	
+	N:=Gamma`N;
+	SL2:=SL(2,Integers(N));
+	Gamma`H:=sub< SL2 | Gamma`gens cat [[-1,0,0,-1]]>;
+    CPgenus7list[k] :=Gamma;
+end for;
+
+keys:=[k: k in Keys(CPgenus2list)];
+level:=[CPgenus2list[k]`N:k in keys];
+ParallelSort(~level,~keys);
+for k in keys do;
+SL2:=SL(2,Integers(CPgenus2list[k]`N));
+    N:= Normalizer(SL2,CPgenus2list[k]`H);
+    N1:=quo<N|CPgenus2list[k]`H>;
+    s:=[];
+    for n in N1 do;
+        x:=0;
+        t:=Factorisation(Order(n));
+        // checking if for every p|Order(n) does p|CPlist[k]`N
+        for p in t do;
+            if CPgenus2list[k]`N mod p[1] eq 0 then x:=x+1; end if;
+        end for;
+        if x eq #t then s:=s cat [Order(n)];end if;
+    end for;
+    b:=Lcm(s);
+    
+   
+    if ((CPgenus2list[k]`N) mod 2 eq 0 ) and ((CPgenus2list[k]`N) mod 4 ne 0) then
+        b:=2*b;
+    end if;
+    k;b;
+    print "...............";
+end for;   
+
+//*************************************************************
+
+keys:=[k: k in Keys(CPgenus3list)];
+level:=[CPgenus3list[k]`N:k in keys];
+ParallelSort(~level,~keys);
+for k in keys do;
+SL2:=SL(2,Integers(CPgenus3list[k]`N));
+    N:= Normalizer(SL2,CPgenus3list[k]`H);
+    N1:=quo<N|CPgenus3list[k]`H>;
+    s:=[];
+    for n in N1 do;
+        x:=0;
+        t:=Factorisation(Order(n));
+        // checking if for every p|Order(n) does p|CPlist[k]`N
+        for p in t do;
+            if CPgenus3list[k]`N mod p[1] eq 0 then x:=x+1; end if;
+        end for;
+        if x eq #t then s:=s cat [Order(n)];end if;
+    end for;
+    b:=Lcm(s);
+    
+   
+    if ((CPgenus3list[k]`N) mod 2 eq 0 ) and ((CPgenus3list[k]`N) mod 4 ne 0) then
+        b:=2*b;
+    end if;
+    k;b;
+    print "...............";
+end for;   
+
+//**********************************************************************************
+
+keys:=[k: k in Keys(CPgenus4list)];
+level:=[CPgenus4list[k]`N:k in keys];
+ParallelSort(~level,~keys);
+for k in keys do;
+SL2:=SL(2,Integers(CPgenus4list[k]`N));
+    N:= Normalizer(SL2,CPgenus4list[k]`H);
+    N1:=quo<N|CPgenus4list[k]`H>;
+    s:=[];
+    for n in N1 do;
+        x:=0;
+        t:=Factorisation(Order(n));
+        // checking if for every p|Order(n) does p|CPlist[k]`N
+        for p in t do;
+            if CPgenus4list[k]`N mod p[1] eq 0 then x:=x+1; end if;
+        end for;
+        if x eq #t then s:=s cat [Order(n)];end if;
+    end for;
+    b:=Lcm(s);
+    
+   
+    if ((CPgenus4list[k]`N) mod 2 eq 0 ) and ((CPgenus4list[k]`N) mod 4 ne 0) then
+        b:=2*b;
+    end if;
+    k;b;
+    print "...............";
+end for;   
+
+//**********************************************************************************
+
+keys:=[k: k in Keys(CPgenus5list)];
+level:=[CPgenus5list[k]`N:k in keys];
+ParallelSort(~level,~keys);
+for k in keys do;
+SL2:=SL(2,Integers(CPgenus5list[k]`N));
+    N:= Normalizer(SL2,CPgenus5list[k]`H);
+    N1:=quo<N|CPgenus5list[k]`H>;
+    s:=[];
+    for n in N1 do;
+        x:=0;
+        t:=Factorisation(Order(n));
+        // checking if for every p|Order(n) does p|CPlist[k]`N
+        for p in t do;
+            if CPgenus5list[k]`N mod p[1] eq 0 then x:=x+1; end if;
+        end for;
+        if x eq #t then s:=s cat [Order(n)];end if;
+    end for;
+    b:=Lcm(s);
+    
+   
+    if ((CPgenus5list[k]`N) mod 2 eq 0 ) and ((CPgenus5list[k]`N) mod 4 ne 0) then
+        b:=2*b;
+    end if;
+    k;b;
+    print "...............";
+end for;   
+
+//*************************************************************************************
+
+keys:=[k: k in Keys(CPgenus6list)];
+level:=[CPgenus6list[k]`N:k in keys];
+ParallelSort(~level,~keys);
+for k in keys do;
+SL2:=SL(2,Integers(CPgenus6list[k]`N));
+    N:= Normalizer(SL2,CPgenus6list[k]`H);
+    N1:=quo<N|CPgenus6list[k]`H>;
+    s:=[];
+    for n in N1 do;
+        x:=0;
+        t:=Factorisation(Order(n));
+        // checking if for every p|Order(n) does p|CPlist[k]`N
+        for p in t do;
+            if CPgenus6list[k]`N mod p[1] eq 0 then x:=x+1; end if;
+        end for;
+        if x eq #t then s:=s cat [Order(n)];end if;
+    end for;
+    b:=Lcm(s);
+    
+   
+    if ((CPgenus6list[k]`N) mod 2 eq 0 ) and ((CPgenus6list[k]`N) mod 4 ne 0) then
+        b:=2*b;
+    end if;
+    k;b;
+    print "...............";
+end for;   
+
+//*****************************************************************************************
+
+keys:=[k: k in Keys(CPgenus7list)];
+level:=[CPgenus7list[k]`N:k in keys];
+ParallelSort(~level,~keys);
+for k in keys do;
+SL2:=SL(2,Integers(CPgenus7list[k]`N));
+    N:= Normalizer(SL2,CPgenus7list[k]`H);
+    N1:=quo<N|CPgenus7list[k]`H>;
+    s:=[];
+    for n in N1 do;
+        x:=0;
+        t:=Factorisation(Order(n));
+        // checking if for every p|Order(n) does p|CPlist[k]`N
+        for p in t do;
+            if CPgenus7list[k]`N mod p[1] eq 0 then x:=x+1; end if;
+        end for;
+        if x eq #t then s:=s cat [Order(n)];end if;
+    end for;
+    b:=Lcm(s);
+    
+   
+    if ((CPgenus7list[k]`N) mod 2 eq 0 ) and ((CPgenus7list[k]`N) mod 4 ne 0) then
+        b:=2*b;
+    end if;
+    k;b;
+    print "...............";
+end for;   
+
+// *****************************************************************************
+// Output is as follows; an upper bound is SL_2 level * b
+
+/*8A2
+8
+...............
+8C2
+2
+...............
+8B2
+2
+...............
+9A2
+3
+...............
+9B2
+1
+...............
+11A2
+1
+...............
+13A2
+1
+...............
+16H2
+2
+...............
+16F2
+2
+...............
+16C2
+8
+...............
+16A2
+8
+...............
+16B2
+2
+...............
+16L2
+2
+...............
+16D2
+2
+...............
+16E2
+2
+...............
+16J2
+4
+...............
+16K2
+4
+...............
+16I2
+4
+...............
+16G2
+1
+...............
+19A2
+1
+...............
+23A2
+1
+...............
+25F2
+1
+...............
+25D2
+1
+...............
+25B2
+1
+...............
+25C2
+1
+...............
+25A2
+1
+...............
+25E2
+1
+...............
+27A2
+3
+...............
+27B2
+3
+...............
+29A2
+1
+...............
+31A2
+1
+...............
+32B2
+4
+...............
+32A2
+8
+...............
+32C2
+4
+...............
+37A2
+1
+...............
+64A2
+4
+...............
+8B3
+8
+...............
+16I3
+8
+...............
+16D3
+4
+...............
+16C3
+4
+...............
+16J3
+4
+...............
+16F3
+2
+...............
+16E3
+2
+...............
+16M3
+2
+...............
+16B3
+8
+...............
+16S3
+4
+...............
+32C3
+4
+...............
+32B3
+8
+...............
+32M3
+4
+...............
+32H3
+2
+...............
+32K3
+8
+...............
+32D3
+4
+...............
+41A3
+1
+...............
+64A3
+8
+...............
+25D4
+5
+...............
+25A4
+5
+...............
+32B4
+2
+...............
+47A4
+1
+...............
+16G5
+2
+...............
+59A5
+1
+...............
+71A6
+1
+...............
+32E7
+8
+...............
+64D7
+8
+...............*/
+
+
+// We now lower the GL_2 level for groups coming from 64A3 and 64D7.
+
+function gl2DetIndex(H)
+    M,pi:=MultiplicativeGroup(BaseRing(H));
+    return Index(M,sub<M|[Inverse(pi)(Determinant(h)):h in Generators(H)]>);
+end function;
+function gl2Level(G)
+    
+    idx:=Index(GL(2,BaseRing(G)),G);
+    if idx eq 1 then return 1; end if;
+    P:=PrimeDivisors(#BaseRing(G));
+    if #P eq 1 then
+        m:=P[1];
+        while Index(GL(2,Integers(m)),ChangeRing(G,Integers(m))) lt idx do m *:=P[1]; end while;
+        return m;
+    end if;
+    return Min([m:m in Divisors(#BaseRing(G)) | m gt 1 and Index(GL(2,Integers(m)),ChangeRing(G,Integers(m))) eq idx]);
+end function;
+function gl2QImagesFromSL2(H)
+    GL2:=GL(2,BaseRing(H));
+    SL2:=SL(2,BaseRing(H));
+    assert H subset SL2;
+    N:=Normalizer(GL2,H);
+    Q,pi:=quo<N|H>;
+    // we are interested only in subgroups of Q that are isomorphic to the multiplicative group of Z/nZ
+    m:=#MultiplicativeGroup(BaseRing(H));
+    S:=[Inverse(pi)(K`subgroup) : K in Subgroups(Q:OrderEqual:=m,IsAbelian:=true)];
+    return [G: G in S | gl2DetIndex(G) eq 1 and gl2Level(G) eq #BaseRing(H)];
+end function;
+
+N:=512;
+H:=CPgenus3list["64A3"]`H;
+red:=hom<SL(2,Integers(N))->SL(2,Integers(64))|[SL(2,Integers(64))!SL(2,Integers(N)).i:i in [1..#Generators(SL(2,Integers(N)))]]>;
+Hred:=H@@red;
+BaseRing(Hred);
+gl2QImagesFromSL2(Hred); // empty so no groups of level 512
+
+N:=512;
+H:=CPgenus7list["64D7"]`H;
+red:=hom<SL(2,Integers(N))->SL(2,Integers(64))|[SL(2,Integers(64))!SL(2,Integers(N)).i:i in [1..#Generators(SL(2,Integers(N)))]]>;
+Hred:=H@@red;
+BaseRing(Hred);
+gl2QImagesFromSL2(Hred); // empty so no groups of level 512
+
+
