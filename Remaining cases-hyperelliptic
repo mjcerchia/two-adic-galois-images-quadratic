@@ -1,0 +1,73 @@
+load "OpenImage-master/main/FindOpenImage.m"; // Please modify the path according to local directory on your system.
+
+// 64.96.3.c.1 
+
+level := 64;
+gens := [[3, 59, 32, 1], [5, 18, 48, 15], [33, 19, 48, 53], [47, 15, 48, 27], [59, 48, 0, 19]];
+Grec:=CreateModularCurveRec(level,gens);
+M:=FindModelOfXG(Grec,65)`psi; // this 65 is precision 
+x:=AssociativeArray();
+P:=ProjectiveSpace(Rationals(),4);
+for i in [1..5] do;
+    x[i]:=P.i;
+end for;
+
+C:=Curve(P,M);
+IsHyperelliptic(C); // true
+
+*******************************************************************************************************************
+
+// 64.96.3.c.2
+
+level := 64;
+gens := [[11, 58, 32, 35], [15, 13, 0, 49], [35, 16, 0, 7], [47, 10, 16, 49], [59, 30, 16, 33]];
+Grec:=CreateModularCurveRec(level,gens);
+M:=FindModelOfXG(Grec,65)`psi;
+x:=AssociativeArray();
+P:=ProjectiveSpace(Rationals(),4);
+for i in [1..5] do;
+    x[i]:=P.i;
+end for;
+
+C:=Curve(P,M);
+IsHyperelliptic(C); // true
+
+*********************************************************************************************************************
+
+// 64.96.3.d.1
+
+level := 64;
+gens := [[5, 31, 32, 1], [9, 39, 0, 5], [39, 2, 0, 3], [53, 22, 32, 19], [55, 56, 0, 47]];
+Grec:=CreateModularCurveRec(level,gens);
+M:=FindModelOfXG(Grec,65)`psi;
+x:=AssociativeArray();
+P:=ProjectiveSpace(Rationals(),4);
+for i in [1..5] do;
+    x[i]:=P.i;
+end for;
+
+C:=Curve(P,M);
+IsHyperelliptic(C); // true
+
+***********************************************************************************************************************
+
+//64.96.3.d.2
+
+level := 64;
+gens := [[1, 46, 32, 55], [39, 17, 32, 35], [41, 21, 32, 47], [47, 21, 32, 1], [61, 57, 0, 3]];
+Grec:=CreateModularCurveRec(level,gens);
+M:=FindModelOfXG(Grec,65)`psi;
+x:=AssociativeArray();
+P:=ProjectiveSpace(Rationals(),4);
+for i in [1..5] do;
+    x[i]:=P.i;
+end for;
+
+C:=Curve(P,M);
+IsHyperelliptic(C); // true
+
+**************************************************************************************************************************
+
+
+
+
