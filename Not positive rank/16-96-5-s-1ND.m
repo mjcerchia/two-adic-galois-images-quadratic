@@ -4,8 +4,7 @@ Here is a summary of the argument.
 
 Let C be the modular curve with lmfdb label 16.96.5.s.1
 We compute the automorphism group over Q and find there are three genus one quotients by an involution. The first and third have 
-4 and 2 points, respectively, mod 3.
-NOT positive rank bielliptic. 
+4 and 2 points, respectively, mod 3. For the second, we construct a new model and find that it is rank one. 
 ******************************************************************************/
 P<x,y,z,w,t> := ProjectiveSpace(Rationals(),4);
 C := Curve(P,[2*x^2 + y*z, 2*y*z + w*t, 2*y^2 + 2*z^2 + w^2 - t^2]);
@@ -171,7 +170,18 @@ yv^2 - 512*x1v^4 - 64*x1v^2*x2v^2 + 2*x2v^4
 */
 
 P<x>:=PolynomialRing(Rationals());
-f := -(-512*x^4-64*x^2+2); 
+f := -(-512*x^4 - 64*x^2 + 2);  
 H := HyperellipticCurve(f);
 
 HasPointsEverywhereLocally(f,2); 
+RationalPoints(H : Bound := 10000);
+/*
+{@ (-3 : -224 : 4), (-3 : 224 : 4), (-1 : -32 : 4), (-1 : 32 : 4), (1 : -32 : 
+4), (1 : 32 : 4), (3 : -224 : 4), (3 : 224 : 4), (-11 : -736 : 68), (-11 : 736 :
+68), (11 : -736 : 68), (11 : 736 : 68), (-233 : -1276448 : 188), (-233 : 1276448
+: 188), (233 : -1276448 : 188), (233 : 1276448 : 188) @}
+*/
+
+pt := H!RationalPoints(H : Bound := 10000)[1]; 
+E := EllipticCurve(H,pt);
+Rank(E); //1
