@@ -12,11 +12,13 @@ NOT bielliptic.
 P<x,y,z,w,t> := ProjectiveSpace(Rationals(),4);
 C := Curve(P,[2*y*z - w^2 + t^2, 2*y^2 + z^2 - w^2 - t^2, 8*x^2 - y*z - z^2 + w^2]);
 
-S := AutomorphismGroup(C); 
+C7 := Curve(Reduction(C,7)); 
 
-S := AutomorphismGroup(C); 
+S := AutomorphismGroup(C7); 
+
+S := AutomorphismGroup(C7); 
 auts := [];
-Stemp := Automorphisms(C);
+Stemp := Automorphisms(C7);
 for s in Stemp do
 auts := Append(auts, S!s);
 end for;
@@ -28,7 +30,7 @@ l := []; //list of genus 1 quotients by involutions
 m:= []; //in case Magma complains that genus 1 curves and elliptic curves can't be in the same list.
 for g in auts do
 if Order(g) eq 2 then
-AG := AutomorphismGroup(C,[g]);
+AG := AutomorphismGroup(C7,[g]);
 CG,prj := CurveQuotient(AG);prj;
 if Genus(CG) eq 1 then
 try
