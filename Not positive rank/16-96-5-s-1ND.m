@@ -143,3 +143,35 @@ coeffs := [ 0, 1 ];
     end if;
     end for;
     ideals;
+
+//Finding a nicer model    
+gens := ideals[1];
+P7 := AmbientSpace(C1);
+R  := CoordinateRing(P7);
+I := ideal< R | gens >;
+Pl := Place(C1, I);
+D  := Divisor(Pl);
+a,b := RiemannRochSpace(D);
+x1 := b(a.1); 
+x2 := b(a.2); 
+a,b := RiemannRochSpace(2*D);
+y := b(a.1); 
+F := BaseField(C1);
+P := PolynomialRing( F, [2,1,1], "grevlexw", [2,1,1] );
+vars := ["yv","x1v", "x2v"]; //(calling them yv and xv so magma doesn't confuse the functions with x and y)
+P := ProjectiveSpace(P);
+AssignNames(~P, vars);
+phi := map<C1 -> P | [y,x1,x2]>;
+C2:=Image(phi);
+
+C2;
+/*
+Curve over Rational Field defined by
+yv^2 - 512*x1v^4 - 64*x1v^2*x2v^2 + 2*x2v^4
+*/
+
+P<x>:=PolynomialRing(Rationals());
+f := -(-512*x^4-64*x^2+2); 
+H := HyperellipticCurve(f);
+
+HasPointsEverywhereLocally(f,2); 
