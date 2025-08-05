@@ -10,8 +10,6 @@ P<x,y,z,w,t> := ProjectiveSpace(Rationals(),4);
 C := Curve(P,[-x*w + x*t + y*z, 4*x^2 + y^2 - 2*z^2 + w*t - t^2, 4*x^2 - y^2 + 2*z^2 - w^2 - 3*w*t + 2*t^2]);
 
 S := AutomorphismGroup(C); 
-
-S := AutomorphismGroup(C); 
 auts := [];
 Stemp := Automorphisms(C);
 for s in Stemp do
