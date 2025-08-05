@@ -7,7 +7,7 @@ We compute the automorphism group over Q and find there are no genus one quotien
 NOT bielliptic. 
 ******************************************************************************/
 P<x,y,z,w,t> := ProjectiveSpace(Rationals(),4);
-C := Curve(P,[y^2 - w*t, x^2 - y*z, 2*z^2 - w^2 + t^2]);
+C := Curve(P,[-x*w + x*t + y*z, 4*x^2 + y^2 - 2*z^2 + w*t - t^2, 4*x^2 - y^2 + 2*z^2 - w^2 - 3*w*t + 2*t^2]);
 
 S := AutomorphismGroup(C); 
 
