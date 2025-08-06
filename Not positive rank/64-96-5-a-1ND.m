@@ -4,7 +4,7 @@ Here is a summary of the argument.
 
 Let C be the modular curve with lmfdb label 32.96.5.bf.1.
 We compute the automorphism group over Q and find there are three genus one quotients by an involution. Mod 97, the first has 80 points,
-while the single rank one newform -- call it E -- has 100 points. Mod 83, the third has 90 points, while E has 78 points.
+while the single rank one newform -- call it E -- has 116 points. Mod 61, the third has 74 points, while E has 50 points.
 This leaves us with the second curve. We construct a new model of this quotient curve using Riemann-Roch and find that it 
 fails local solubility. 
 NOT bielliptic. 
@@ -110,12 +110,12 @@ l;
 */
 
 #EllipticCurve(Curve(Reduction(l[1],97))); //80
-#EllipticCurve(Curve(Reduction(l[3],83))); //90
+#EllipticCurve(Curve(Reduction(l[3],61))); //74
 
 Qx<x> := PolynomialRing(Rationals());
-E := EllipticCurve(x^3+x^2+x+1);
-#EllipticCurve(Curve(Reduction(E,83))); //78
-#EllipticCurve(Curve(Reduction(E,97))); //100
+E := EllipticCurve(x^3 - 2*x);
+#EllipticCurve(Curve(Reduction(E,97))); //116
+#EllipticCurve(Curve(Reduction(E,61))); //50
 
 C1 := l[2];
 
