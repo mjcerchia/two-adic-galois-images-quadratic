@@ -3,8 +3,9 @@
 Here is a summary of the argument.
 
 Let C be the modular curve with lmfdb label 32.96.5.c.2.
-We compute the automorphism group over Q and find there are three genus one quotient by an involution. They have 6 and 4 points.
-The single rank one elliptic curve factor of the Jacobian has 10 points over F5.
+We compute the automorphism group over Q and find there are three genus one quotient by an involution. Over F5, the second and third each
+have 4 points, while the single rank one elliptic curve factor of the Jacobian has 8 points over F5. Over F7, the first has 8 points, while
+the single rank one elliptic curve factor of the Jacobian has 12 points.
 NOT bielliptic. 
 ******************************************************************************/
 P<x,y,z,w,t>:=ProjectiveSpace(Rationals(),4);
@@ -122,10 +123,11 @@ l;
         9*x[8]^2
 ]
 */
-#EllipticCurve(Curve(Reduction((l[1]),5))); //8
-#EllipticCurve(Curve(Reduction((l[2]),5)));
-#EllipticCurve(Curve(Reduction((l[3]),5)));
+#EllipticCurve(Curve(Reduction((l[1]),7))); //8
+#EllipticCurve(Curve(Reduction((l[2]),5))); //4
+#EllipticCurve(Curve(Reduction((l[3]),5))); //4
 
 Qx<x> := PolynomialRing(Rationals());
 E := EllipticCurve(x^3+x^2+x+1);
-#EllipticCurve(Curve(Reduction(E,5))); 
+#EllipticCurve(Curve(Reduction(E,5))); //8
+#EllipticCurve(Curve(Reduction(E,7))); //12
