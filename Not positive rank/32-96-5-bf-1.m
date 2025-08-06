@@ -3,7 +3,7 @@
 Here is a summary of the argument.
 
 Let C be the modular curve with lmfdb label 32.96.5.bf.1.
-We compute the automorphism group over Q and find there are three genus one quotient by an involution. Mod 97, the first has 80 points,
+We compute the automorphism group over Q and find there are three genus one quotients by an involution. Mod 97, the first has 80 points,
 while the single rank one newform -- call it E -- has 100 points. Mod 83, the third has 90 points, while E has 78 points.
 This leaves us with the second curve. We construct a new model of this quotient curve using Riemann-Roch and find that it 
 fails local solubility. 
