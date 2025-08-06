@@ -5,7 +5,8 @@ Here is a summary of the argument.
 Let C be the modular curve with lmfdb label 32.96.5.bf.1.
 We compute the automorphism group over Q and find there are three genus one quotient by an involution. Mod 97, the first has 80 points,
 while the single rank one newform -- call it E -- has 100 points. Mod 83, the third has 90 points, while E has 78 points.
-This leaves us with te second curve. 
+This leaves us with the second curve. We construct a new model of this quotient curve using Riemann-Roch and find that it 
+fails local solubility. 
 NOT bielliptic. 
 ******************************************************************************/
 P<x,y,z,w,t>:=ProjectiveSpace(Rationals(),4);
@@ -186,4 +187,35 @@ coeffs := [ 0, 1 ];
 
 //build a new model
 gens := ideals[1];
+P7 := AmbientSpace(C1);
+R  := CoordinateRing(P7);
+I := ideal< R | gens >;
+Pl := Place(C1, I);
+D  := Divisor(Pl);
+a,b := RiemannRochSpace(D);
+x1 := b(a.1); 
+x2 := b(a.2); 
+a,b := RiemannRochSpace(2*D);
+y := b(a.1);
+F := BaseField(C1);
+P := PolynomialRing( F, [2,1,1], "grevlexw", [2,1,1] );
+vars := ["yv","x1v", "x2v"]; //(calling them yv and xv so magma doesn't confuse the functions with x and y)
+P := ProjectiveSpace(P);
+AssignNames(~P, vars);
+phi := map<C1 -> P | [y,x1,x2]>;
+C2:=Image(phi);
+
+C2;
+/*
+Curve over Rational Field defined by
+yv^2 + 4096*x1v^4 - 4*yv*x2v^2 + 128*x1v^2*x2v^2 + 6*x2v^4
+*/
+
+//We complete the square to get the model:
+P<x> := PolynomialRing(Rationals());
+f := -(4096*x^4+128*x^2+10);
+H := HyperellipticCurve(f);
+HasPointsEverywhereLocally(f,2); // false
+
+
     
