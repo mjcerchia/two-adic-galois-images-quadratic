@@ -213,7 +213,7 @@ yv^2 + 4096*x1v^4 - 4*yv*x2v^2 + 128*x1v^2*x2v^2 + 6*x2v^4
 
 //We complete the square to get the model:
 P<x> := PolynomialRing(Rationals());
-f := -(4096*x^4+128*x^2+10);
+f := -(4096*x^4+128*x+2);
 H := HyperellipticCurve(f);
 HasPointsEverywhereLocally(f,2); // false
 
