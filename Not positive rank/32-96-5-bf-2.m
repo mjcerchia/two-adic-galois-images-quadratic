@@ -3,8 +3,8 @@
 Here is a summary of the argument.
 
 Let C be the modular curve with lmfdb label 32.96.5.bf.2.
-We compute the automorphism group over Q and find there are three genus one quotients by an involution. Mod 97, the first has 80 points,
-while the single rank one newform -- call it E -- has 100 points. Mod 83, the third has 90 points, while E has 78 points.
+We compute the automorphism group over Q and find there are three genus one quotients by an involution. Mod 7, the first and third have 8 and 4 points,
+respectively, while the single rank one newform -- call it E -- has 12 points. 
 This leaves us with the second curve. We construct a new model of this quotient curve using Riemann-Roch and find that it 
 fails local solubility. 
 NOT bielliptic. 
@@ -147,12 +147,11 @@ l;
 */
 
 #EllipticCurve(Curve(Reduction(l[1],7))); //8
-#EllipticCurve(Curve(Reduction(l[2],7))); //
-#EllipticCurve(Curve(Reduction(l[3],7))); //
+#EllipticCurve(Curve(Reduction(l[3],7))); //4
 
 Qx<x> := PolynomialRing(Rationals());
 E := EllipticCurve(x^3+x^2+x+1);
-#EllipticCurve(Curve(Reduction(E,7))); //
+#EllipticCurve(Curve(Reduction(E,7))); //12
 
 C1 := l[2];
 
@@ -213,7 +212,7 @@ yv^2 + 4096*x1v^4 - 4*yv*x2v^2 + 128*x1v^2*x2v^2 + 6*x2v^4
 
 //We complete the square to get the model:
 P<x> := PolynomialRing(Rationals());
-f := -(4096*x^4+128*x^2+10);
+ f := -(4096*x^4+128*x+2);
 H := HyperellipticCurve(f);
 HasPointsEverywhereLocally(f,2); // false
 
