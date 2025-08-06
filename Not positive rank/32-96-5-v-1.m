@@ -2,7 +2,7 @@
 /****************************************************************************** 
 Here is a summary of the argument.
 
-Let C be the modular curve with lmfdb label 32.96.5.q.1.
+Let C be the modular curve with lmfdb label 32.96.5.v.1.
 We compute the automorphism group over Q and find there is one genus one quotient by an involution. Over F7, it has 8 points, 
 while the single rank one elliptic curve factor of the Jacobian has 12 points over F7.
 NOT bielliptic. 
