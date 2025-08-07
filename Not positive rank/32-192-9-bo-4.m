@@ -48,7 +48,7 @@ print ".........";
 end for;
 
 l;
-\*
+/*
 [
     Curve over GF(3) defined by
     2*x[1]*x[5] + x[3]*x[5] + 2*x[1]*x[7] + 2*x[1]*x[11] + 2*x[1]*x[13] + 
