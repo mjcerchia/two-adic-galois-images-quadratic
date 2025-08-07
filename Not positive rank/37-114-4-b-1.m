@@ -4,7 +4,7 @@ Here is a summary of the argument.
 
 Let C be the modular curve with lmfdb label 37.114.4.b.1
 We compute the automorphism group over F3 and find there is one genus one quotient by an involution. It has 3 points.
-The single rank one elliptic curve factor of the Jacobian has 10 points over F5.
+The single rank one elliptic curve factor of the Jacobian has 7 points over F3.
 NOT bielliptic. 
 ******************************************************************************/
 P<x,y,z,w,t>:=ProjectiveSpace(Rationals(),4);
@@ -21,7 +21,7 @@ end for;
 #auts eq #S;
 
 
-//There are two genus one quotients by an involution
+//There is one genus one quotients by an involution
 l := []; //list of genus 1 quotients by involutions
 m:= []; //in case Magma complains that genus 1 curves and elliptic curves can't be in the same list.
 for g in auts do
@@ -65,6 +65,5 @@ l;
 */
 #EllipticCurve(Curve(l[1])); //6
 
-Qx<x> := PolynomialRing(Rationals());
-E := EllipticCurve(x^3 - 2*x);
-#EllipticCurve(Curve(Reduction(E,5))); //10
+E := EllipticCurve([0,0,1,-1,0]);
+#EllipticCurve(Curve(Reduction(E,3))); //7
