@@ -1,9 +1,8 @@
-16.96.5.v.1
 /****************************************************************************** 
 Here is a summary of the argument.
 
 Let C be the modular curve with lmfdb label 16.96.5.v.1.
-We compute the automorphism group over F3 and find there is one genus one quotients by an involution. It has 4 points, while the
+We compute the automorphism group over F3 and find there is one genus one quotient by an involution. It has 4 points, while the
 single rank one factor of the Jacobian has 6 points.
 NOT bielliptic. 
 ******************************************************************************/
@@ -12,6 +11,7 @@ C := Curve(P,[2*x^2 + z*t, y^2 + y*z - y*t + z*w - z*t + w^2 - w*t, 2*y^2 + y*z 
 C3 := Curve(Reduction(C,3));
 
 S := AutomorphismGroup(C3); 
+
 auts := [];
 Stemp := Automorphisms(C3);
 for s in Stemp do
@@ -20,7 +20,7 @@ end for;
 #auts eq #S;
 
 
-//There is one genus one quotients by an involution
+//There is one genus one quotient by an involution
 l := []; //list of genus 1 quotients by involutions
 m:= []; //in case Magma complains that genus 1 curves and elliptic curves can't be in the same list.
 for g in auts do
@@ -40,6 +40,34 @@ print ".........";
 end for;
 
 l;
+/*
+[
+    Curve over GF(3) defined by
+    2*x[1]*x[5] + x[3]*x[5] + x[2]*x[6] + x[5]*x[6] + x[1]*x[8],
+    2*x[1]*x[4] + x[3]*x[6],
+    2*x[1]*x[5] + x[3]*x[7],
+    2*x[5]*x[6] + x[3]*x[8],
+    2*x[1]*x[2] + 2*x[2]*x[4] + x[4]^2 + x[1]*x[5] + 2*x[2]*x[5] + x[5]*x[6] + 
+        2*x[2]*x[7] + 2*x[1]*x[8] + x[2]*x[8],
+    x[1]*x[2] + 2*x[2]*x[4] + x[2]*x[5] + x[4]*x[5] + 2*x[2]*x[6] + 2*x[5]*x[6] 
+        + x[2]*x[7] + 2*x[2]*x[8],
+    x[1]*x[5] + x[2]*x[6] + x[4]*x[6] + x[5]*x[6] + x[1]*x[8],
+    2*x[5]*x[6] + x[4]*x[7],
+    x[2]*x[3] + x[2]*x[4] + x[2]*x[6] + x[2]*x[8] + x[4]*x[8],
+    2*x[2]*x[3] + x[2]*x[4] + x[5]^2 + x[2]*x[6] + x[2]*x[8],
+    x[1]*x[2] + x[2]*x[3] + 2*x[1]*x[4] + x[3]*x[4] + 2*x[2]*x[6] + 2*x[5]*x[6] 
+        + x[1]*x[7] + 2*x[1]*x[8],
+    2*x[2]*x[3] + x[5]*x[7],
+    2*x[2]*x[4] + x[5]*x[8],
+    2*x[1]*x[5] + x[6]^2 + 2*x[1]*x[7],
+    x[6]*x[7] + 2*x[1]*x[8],
+    2*x[1]*x[2] + 2*x[2]*x[3] + x[6]*x[8],
+    2*x[1]*x[2] + x[7]^2,
+    2*x[2]*x[6] + x[7]*x[8],
+    2*x[2]*x[5] + 2*x[2]*x[7] + x[8]^2,
+    2*x[1]*x[3] + x[3]^2 + x[1]*x[4] + x[1]*x[6] + x[1]*x[8]
+]
+*/
 
 #EllipticCurve(Curve(l[1])); //4
 Qx<x> := PolynomialRing(Rationals());
