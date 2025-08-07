@@ -1,4 +1,3 @@
-16.192.9.ei.2
 /****************************************************************************** 
 Here is a summary of the argument.
 
@@ -16,9 +15,9 @@ r, y*z - z^2 + w*u - u*v, z^2 - w*u - t*u, y*s - u^2 + r^2, z*s - u^2\
 ^2 + 2*w*t - t^2 - u^2, x^2 + y*w - y*t + y*v + z*v - u*s + r*s, y^2 \
 - z^2 - w*u - 2*w*r + t*u + s^2]);
 C13 := Curve(Reduction(C,13)); 
-S := AutomorphismGroup(C13); 
 
 S := AutomorphismGroup(C13); 
+
 auts := [];
 Stemp := Automorphisms(C13);
 for s in Stemp do
@@ -27,7 +26,7 @@ end for;
 #auts eq #S;
 
 
-//There is one genus one quotients by an involution
+//There is one genus one quotient by an involution
 l := []; //list of genus 1 quotients by involutions
 m:= []; //in case Magma complains that genus 1 curves and elliptic curves can't be in the same list.
 for g in auts do
