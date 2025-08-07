@@ -40,7 +40,7 @@ print ".........";
 end for;
 
 l;
-\*
+/*
 Curve over GF(7) defined by
 5*x[3]*x[5] + 2*x[2]*x[7],
 2*x[3]*x[6] + 5*x[7]*x[8],
