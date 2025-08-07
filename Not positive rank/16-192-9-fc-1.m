@@ -1,4 +1,3 @@
-16.192.9.fc.1
 /****************************************************************************** 
 Here is a summary of the argument.
 
@@ -27,7 +26,7 @@ auts := Append(auts, S!s);
 end for;
 #auts eq #S;
 
-//There is one genus one quotients by an involution
+//There is one genus one quotient by an involution
 l := []; //list of genus 1 quotients by involutions
 m:= []; //in case Magma complains that genus 1 curves and elliptic curves can't be in the same list.
 for g in auts do
