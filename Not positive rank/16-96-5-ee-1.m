@@ -1,4 +1,3 @@
-16.96.5.ee.1
 /****************************************************************************** 
 Here is a summary of the argument.
 
@@ -11,7 +10,6 @@ C := Curve(P,[2*x*z + y*w + y*t, 2*x^2 - 4*y^2 - 4*z^2 + w^2 + w*t, 2*x^2 + 4*y^
 
 S := AutomorphismGroup(C); 
 
-S := AutomorphismGroup(C); 
 auts := [];
 Stemp := Automorphisms(C);
 for s in Stemp do
