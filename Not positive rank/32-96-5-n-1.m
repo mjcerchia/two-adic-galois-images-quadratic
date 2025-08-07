@@ -41,7 +41,7 @@ print ".........";
 end for;
 
 l;
-\*
+/*
 [
     Curve over Rational Field defined by
     x[1]^2 - 32768*x[4]*x[6] + 1024*x[7]^2,
