@@ -1,4 +1,3 @@
-32.192.9.bh.2
 /****************************************************************************** 
 Here is a summary of the argument.
 
@@ -14,6 +13,7 @@ x^2 - w*u, y*s + t*v, x^2 - w*t - t^2, x*r + y*s - z^2, x*t + y*w, x*t - x*u -\
  y*t, x*y + y^2 + w*t - 2*t*u - u^2 - r*s - s^2, x^2 + x*y - 2*y^2 - t*u - 2*u\
 ^2 + v^2, x^2 - w^2 + w*t + 2*w*u + t^2 - s^2, x*w - x*t - 2*x*u + y*w + 2*y*t\
  + v*s, x*t + 4*y*u - v*r - v*s]);
+ 
 C3 := Curve(Reduction(C,3)); 
 S := AutomorphismGroup(C3); 
 
@@ -45,7 +45,7 @@ print ".........";
 end for;
 
 l;
-\*
+/*
 [
     Curve over GF(3) defined by
     x[3]*x[5] + x[1]*x[6] + x[1]*x[14],
