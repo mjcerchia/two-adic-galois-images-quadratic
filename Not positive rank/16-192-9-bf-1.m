@@ -1,5 +1,3 @@
-16.192.9.bf.1
-
 /****************************************************************************** 
 Here is a summary of the argument.
 
@@ -13,7 +11,6 @@ C := Curve(P,[v^2 + r*s, t*r + u*v, z*s + w*s - u*v, y*v + z*s - t*s, t*v - u*s,
 
 S := AutomorphismGroup(C); 
 
-S := AutomorphismGroup(C); 
 auts := [];
 Stemp := Automorphisms(C);
 for s in Stemp do
@@ -22,7 +19,7 @@ end for;
 #auts eq #S;
 
 
-//There is one genus one quotients by an involution
+//There is one genus one quotient by an involution
 l := []; //list of genus 1 quotients by involutions
 m:= []; //in case Magma complains that genus 1 curves and elliptic curves can't be in the same list.
 for g in auts do
@@ -42,7 +39,7 @@ print ".........";
 end for;
 
 l;
-\*
+/*
 [
     Curve over Rational Field defined by
     2*x[1]^2 - x[3]^2 + x[11]^2 + 2*x[15]^2,
