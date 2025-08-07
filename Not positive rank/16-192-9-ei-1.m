@@ -1,4 +1,3 @@
-16.192.9.ei.1
 /****************************************************************************** 
 Here is a summary of the argument.
 
@@ -10,9 +9,10 @@ NOT bielliptic.
 P<x,y,z,w,t,u,v,r,s> := ProjectiveSpace(Rationals(),8);
 C:= Curve(P,[x*v - u*r, x*v - t*s - u*s, z*v - t*s + v*s, w*v - t*r + v*r, x*t - x*v - w*u, z*r - w*s, z*t + z*u - w*u, x*r - x*s - w*s - r*s, z*s + w*s + u*v - r*s - s^2, z*s - w*r - t*v + r^2 - s^2, x*z - x*w + z*w + w*s, z^2 + z*w + t*u - r*s - s^2, z^2 - w^2 - t^2 + r^2 - s^2, 2*x*u - z*t + z*v - v*s, 2*x^2 - z*w - r*s, x*z + x*w - x*r - x*s + t*u + u^2, x*z + x*w + x*r + x*s + z*s - w*r + t*u + u^2 - v^2, x*z - x*w - x*r + x*s + z^2 - z*w - t*u - t*v - u^2 + v^2 + r^2 - r*s, x*z - x*w - x*r + x*s - z*w + z*s + w^2 - w*r + t*u + u^2 - v^2 + r^2 - r*s, x*t + 2*y^2, x*t + x*v + z*t - z*v - w*t + w*u + w*v - v*r + v*s]);
 C13 := Curve(Reduction(C,13)); 
-S := AutomorphismGroup(C13); 
 
 S := AutomorphismGroup(C13); 
+
+
 auts := [];
 Stemp := Automorphisms(C13);
 for s in Stemp do
@@ -21,7 +21,7 @@ end for;
 #auts eq #S;
 
 
-//There is one genus one quotients by an involution
+//There is one genus one quotient by an involution
 l := []; //list of genus 1 quotients by involutions
 m:= []; //in case Magma complains that genus 1 curves and elliptic curves can't be in the same list.
 for g in auts do
@@ -41,7 +41,7 @@ print ".........";
 end for;
 
 l;
-\*
+/*
 [
     Curve over GF(13) defined by
     5*x[1]^2 + 10*x[1]*x[2] + 12*x[2]^2 + x[1]*x[3] + 5*x[2]*x[3] + 8*x[3]^2 + 
