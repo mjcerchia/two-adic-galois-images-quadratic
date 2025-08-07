@@ -1,4 +1,3 @@
-16.192.9.ba.4
 /****************************************************************************** 
 Here is a summary of the argument.
 
@@ -27,7 +26,7 @@ end for;
 #auts eq #S;
 
 
-//There is one genus one quotients by an involution
+//There is one genus one quotient by an involution
 l := []; //list of genus 1 quotients by involutions
 m:= []; //in case Magma complains that genus 1 curves and elliptic curves can't be in the same list.
 for g in auts do
@@ -47,7 +46,7 @@ print ".........";
 end for;
 
 l;
-\*
+/*
 [
     Curve over Rational Field defined by
     x[1]^2 - 12*x[2]*x[4] + 8*x[4]^2 - 66*x[12]^2 - 39*x[13]^2 + 32*x[7]*x[14] -
