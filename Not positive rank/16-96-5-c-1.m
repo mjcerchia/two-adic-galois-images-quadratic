@@ -1,4 +1,3 @@
-16.96.5.c.1
 /****************************************************************************** 
 Here is a summary of the argument.
 
@@ -12,7 +11,6 @@ C := Curve(P,[y*t + z*w, y^2 + 2*y*w - z^2 - 2*z*t - w^2 + t^2, 4*x^2 + y*z - w*
 
 S := AutomorphismGroup(C); 
 
-S := AutomorphismGroup(C); 
 auts := [];
 Stemp := Automorphisms(C);
 for s in Stemp do
@@ -41,7 +39,7 @@ print ".........";
 end for;
 
 l;
-\*
+/*
 [
     Curve over Rational Field defined by
     x[1]^2 - x[4]^2 - 4*x[4]*x[6] + 13*x[6]^2 + 42*x[3]*x[7] - 29*x[7]^2 + 
