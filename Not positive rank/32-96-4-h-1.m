@@ -17,7 +17,7 @@ auts := Append(auts, S!s);
 end for;
 #auts eq #S;
 
-//There are two genus one quotients by an involution
+//There are no genus one quotients by an involution
 l := []; //list of genus 1 quotients by involutions
 m:= []; //in case Magma complains that genus 1 curves and elliptic curves can't be in the same list.
 for g in auts do
