@@ -13,7 +13,6 @@ C := Curve(P,[y*z - y*t + z*w + w*t, 4*x^2 - y^2 - z^2 - w^2 - t^2, 2*x^2 - y^2 
 
 S := AutomorphismGroup(C); 
 
-S := AutomorphismGroup(C); 
 auts := [];
 Stemp := Automorphisms(C);
 for s in Stemp do
@@ -42,7 +41,7 @@ print ".........";
 end for;
 
 l;
-\*
+/*
 [
     Curve over Rational Field defined by
     3*x[1]^2 - 27*x[4]^2 + 20*x[4]*x[5] + 20*x[3]*x[6] - 46*x[4]*x[6] + 
