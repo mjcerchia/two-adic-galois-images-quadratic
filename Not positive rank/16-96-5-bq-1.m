@@ -1,4 +1,3 @@
-16.96.5.bq.1
 /****************************************************************************** 
 Here is a summary of the argument.
 
@@ -13,6 +12,7 @@ C := Curve(P,[y*z - w*t, 2*y^2 + z^2 - w^2 - t^2, 16*x^2 - 2*y^2 + z^2]);
 C7 := Curve(Reduction(C,7)); 
 
 S := AutomorphismGroup(C7); 
+
 auts := [];
 Stemp := Automorphisms(C7);
 for s in Stemp do
