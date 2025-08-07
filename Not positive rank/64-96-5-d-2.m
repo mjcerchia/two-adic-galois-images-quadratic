@@ -40,7 +40,7 @@ print ".........";
 end for;
 
 l;
-\*
+/*
 [
     Curve over Rational Field defined by
     4*x[1]^2 + x[4]^2 - 64*x[6]*x[7],
