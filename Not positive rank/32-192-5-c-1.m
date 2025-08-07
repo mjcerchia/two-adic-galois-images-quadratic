@@ -1,4 +1,3 @@
-32.192.5.c.1
 /****************************************************************************** 
 Here is a summary of the argument.
 
@@ -11,6 +10,7 @@ P<x,y,z,w,t> := ProjectiveSpace(Rationals(),4);
 C := Curve(P,[y*w - y*t - 2*w*t, 2*x^2 + y*z, y*w + y*t + 2*z^2 + w^2 - t^2]);
 
 S := AutomorphismGroup(C); 
+
 auts := [];
 Stemp := Automorphisms(C);
 for s in Stemp do
@@ -19,7 +19,7 @@ end for;
 #auts eq #S;
 
 
-//There is one genus one quotients by an involution
+//There is one genus one quotient by an involution
 l := []; //list of genus 1 quotients by involutions
 m:= []; //in case Magma complains that genus 1 curves and elliptic curves can't be in the same list.
 for g in auts do
