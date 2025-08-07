@@ -1,4 +1,3 @@
-16.192.9.ck.1
 /****************************************************************************** 
 Here is a summary of the argument.
 
@@ -32,7 +31,7 @@ end for;
 #auts eq #S;
 
 
-//There is one genus one quotients by an involution
+//There is one genus one quotient by an involution
 l := []; //list of genus 1 quotients by involutions
 m:= []; //in case Magma complains that genus 1 curves and elliptic curves can't be in the same list.
 for g in auts do
@@ -52,7 +51,7 @@ print ".........";
 end for;
 
 l;
-\*
+/*
 [
     Curve over GF(3) defined by
     2*x[2]^2 + x[3]*x[5] + x[2]*x[11] + x[1]*x[12] + 2*x[2]*x[12] + x[1]*x[14] +
