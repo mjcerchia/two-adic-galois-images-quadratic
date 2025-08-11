@@ -59,6 +59,6 @@ l;
 */
 
 //One of these quotients has the following model:
-P<x>:=PolynomialRing(Rationals()); 
-H := HyperellipticCurve(x^3 + x^2 - 13*x - 21);
+P<[x]>:=ProjectiveSpace(Rationals(),3);
+C := Curve(P,[x[2]^2 - x[1]*x[3], 16*x[1]^2 + 32*x[2]^2 + 8*x[3]^2 + x[4]^2]);
 Rank(EllipticCurve(H)); //1
