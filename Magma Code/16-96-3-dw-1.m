@@ -1,7 +1,7 @@
 /****************************************************************************** 
 Here is a summary of the argument.
 
-Let C be the modular curve with lmfdb label 32.96.5.h.1. 
+Let C be the modular curve with lmfdb label 16.96.3.dw.1. 
 We find there are five genus one quotients by an involution. 
 One of them is a rank 1 elliptic curve
 ******************************************************************************/
