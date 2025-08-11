@@ -87,4 +87,4 @@ DefiningEquations(D)} eq {0}
 pt :=   rationalPoints(C1:Bound := 1)[1];
 
 E:=EllipticCurve(C1,pt);
-Rank(E);
+Rank(E); //1
