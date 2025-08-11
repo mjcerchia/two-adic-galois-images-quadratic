@@ -3,13 +3,12 @@
 Here is a summary of the argument.
 
 Let C be the modular curve with lmfdb label 16.48.3.l.1. 
-We find there are three genus one quotients by an involution. 
-Over F3, each of these have a different number of points, so they can't be isogenous.
-There are only three factors of the Jacobian up to isogeny.
-One of the quotients must be isogenous to the rank 1 factor of the Jacobian. 
+Using a singular model, we find there are three genus one quotients by an involution. 
+
 ******************************************************************************/
-P<x,y,z,u,w,t> := ProjectiveSpace(Rationals(),5);
-C := Curve(P,[2*x*t + z^2 + w*u, -2*x*w - x*u + y*z, -2*x*t + 2*y^2 + w*u, 4*w^2 + 2*t^2 + u^2, 4*x^2 - x*t + y^2, 4*x*z + 2*y*w + y*u - z*t, 8*x*y + 2*y*t + 2*z*w + z*u]);
+P<x,y,z> := ProjectiveSpace(Rationals(),2);
+C := Curve(P,[8*x^6 - 8*x^4*y^2 + 12*x^4*z^2 + 2*x^2*y^4 + 8*x^2*y^2*z^2 + 6*x^2*z^4 + y^4\
+*z^2 - 2*y^2*z^4 + z^6]);
 
 S := AutomorphismGroup(C); 
 auts := [];
@@ -38,7 +37,18 @@ end if;
 print ".........";
 end for;
 
-//These are different from each other:
-#EllipticCurve(Curve(Reduction(l[1],3))); 
-#EllipticCurve(Curve(Reduction(l[2],3))); 
-#EllipticCurve(Curve(Reduction(l[3],3))); 
+/*
+[
+    Curve over Rational Field defined by
+    x[2]^2 - x[1]*x[3],
+    1/32768*x[1]^2 + 1/4096*x[2]^2 + 1/1024*x[3]^2 + x[4]^2,
+    Curve over Rational Field defined by
+    x[2]^2 - x[1]*x[3],
+    1/256*x[1]^2 + 1/1024*x[3]^2 + x[4]^2,
+    Curve over Rational Field defined by
+    x[2]^2 - x[1]*x[3],
+    1/32768*x[1]^2 + 1/2048*x[2]^2 + 1/256*x[3]^2 + x[4]^2
+]
+*/
+
+
