@@ -1,11 +1,9 @@
-Is this actually bielliptic? There's a rank 1 quotient of a singular model 
-
 /****************************************************************************** 
 Here is a summary of the argument.
 
 Let C be the modular curve with lmfdb label 37.114.4.a.1. 
 We find there are four genus one quotients by an involution. 
-One of these is isomorphic to 1369.d2, which is rank 1. 
+One of these is isomorphic to 1369.d2, which is a rank 1 elliptic curve. 
 
 ******************************************************************************/
 P<x,y,z> := ProjectiveSpace(Rationals(),2);
