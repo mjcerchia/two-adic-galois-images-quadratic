@@ -2,8 +2,8 @@
 Here is a summary of the argument.
 
 Let C be the modular curve with lmfdb label 32.96.5.h.1. 
-We find there are three genus one quotients by an involution. 
-The second is a rank 1 elliptic curve
+We find there are five genus one quotients by an involution. 
+One of them is a rank 1 elliptic curve
 ******************************************************************************/
 P<x,y,z,u,t,w>:=ProjectiveSpace(Rationals(),5);
  C := Curve(P,[x^2 - y*z, 2*y*w + 2*w^2 - t*u + u^2, 2*y*w - 2*w^2 - t^2 - t*\
@@ -36,6 +36,27 @@ CG; Genus(CG);
 end if;
 print ".........";
 end for;
+
+l;
+/*
+[
+    Curve over Rational Field defined by
+    x[2]^2 - x[1]*x[3],
+    -16*x[1]^2 - 32*x[1]*x[2] - 40*x[2]^2 - 24*x[2]*x[3] - 7*x[3]^2 + x[4]^2,
+    Curve over Rational Field defined by
+    x[2]^2 - x[1]*x[3],
+    16*x[1]^2 + 32*x[2]^2 + 8*x[3]^2 + x[4]^2,
+    Curve over Rational Field defined by
+    x[2]^2 - x[1]*x[3],
+    8*x[1]^2 + 32*x[2]^2 + 16*x[3]^2 + x[4]^2,
+    Curve over Rational Field defined by
+    x[2]^2 - x[1]*x[3],
+    16*x[1]^2 - 96*x[2]^2 + 16*x[3]^2 + x[4]^2,
+    Curve over Rational Field defined by
+    x[2]^2 - x[1]*x[3],
+    -16*x[1]^2 - 32*x[1]*x[2] - 40*x[2]^2 - 24*x[2]*x[3] - 7*x[3]^2 + x[4]^2
+]
+*/
 
 //One of these quotients has the following model:
 P<x>:=PolynomialRing(Rationals()); 
