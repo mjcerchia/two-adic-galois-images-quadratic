@@ -39,8 +39,8 @@ end if;
 print ".........";
 end for;
 
+l;
 /*
-There are 3 genus one quotients, all in l. 
 [
     Curve over Rational Field defined by
     x[1]^2 - x[4]^2 - 4*x[6]^2 - 4*x[7]^2,
