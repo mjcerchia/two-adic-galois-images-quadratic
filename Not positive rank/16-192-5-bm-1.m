@@ -2,7 +2,7 @@
 Here is a summary of the argument.
 
 Let C be the modular curve with lmfdb label 16.192.5.bm.1.
-Working oer F5, there is one genus one quotient by an involution. It has 4 points.
+Working over F5, there is one genus one quotient by an involution. It has 4 points.
 The single rank one elliptic curve factor of the Jacobian has 10 points over F5.
 NOT bielliptic. 
 ******************************************************************************/
