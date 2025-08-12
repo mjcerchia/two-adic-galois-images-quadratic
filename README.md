@@ -4,4 +4,4 @@ The folder ``Magma Code`` contains a file for each positive rank bielliptic modu
 
 The folder ``Not positive rank`` contains a file for each candidate curve that is not hyperelliptic and fails to be positive rank bielliptic. In the argument summaries at the top of each file, we write "not bielliptic" as shorthand for "not positive rank bielliptic". 
 
-Since computing automorphism groups of these curves sometimes takes a long time, we have provided models for every genus one quotient curve required in an argument. These are commented out in the files. 
+Since computing automorphism groups of these curves sometimes takes a long time, we have provided models for every genus one quotient curve that is required in an argument. These are commented out in the files. 
