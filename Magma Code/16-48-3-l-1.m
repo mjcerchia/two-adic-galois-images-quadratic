@@ -52,7 +52,7 @@ end for;
 ]
 */
 
-C1 := l[3];
+C1 := l[1];
 
 //Searching for degree two divisors
 P<[X]> := AmbientSpace(C1);
