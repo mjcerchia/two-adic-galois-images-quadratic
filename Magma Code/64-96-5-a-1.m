@@ -4,7 +4,7 @@ Here is a summary of the argument.
 
 Let C be the modular curve with lmfdb label 64.96.5.a.1, 
 We find there are three genus one quotients by an involution. 
-We are able to find a point on the second curve by intersecting with all hyperplanes with coefficients 
+We are able to find a point on one of the curves by intersecting with all hyperplanes with coefficients 
 that are either 1,-1, or 0. From this, we are able to construct an elliptic curve, 
 which we find to have rank 1. 
 ******************************************************************************/
