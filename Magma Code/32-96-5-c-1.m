@@ -10,7 +10,7 @@ order to build a simpler model. After doing this, we find that the curve is elli
 ******************************************************************************/
 
 P<x,y,z,w,t> := ProjectiveSpace(Rationals(),4);
-C := Curve(P,[y*w - z*t, x^2 - y*t + z*w, 2*y^2 + 2*z^2 + w*t])
+C := Curve(P,[y*w - z*t, x^2 - y*t + z*w, 2*y^2 + 2*z^2 + w*t]);
 
 S := AutomorphismGroup(C); 
 auts := [];
@@ -18,7 +18,7 @@ Stemp := Automorphisms(C);
 for s in Stemp do
 auts := Append(auts, S!s);
 end for;
-#auts eq #S;
+assert #auts eq #S;
 
 
 //There are three genus one quotients by an involution
@@ -27,7 +27,7 @@ m:= []; //in case Magma complains that genus 1 curves and elliptic curves can't 
 for g in auts do
 if Order(g) eq 2 then
 AG := AutomorphismGroup(C,[g]);
-CG,prj := CurveQuotient(AG);prj;
+CG,prj := CurveQuotient(AG);
 if Genus(CG) eq 1 then
 try
 l := Append(l,CG);
@@ -35,40 +35,16 @@ catch e
 m := Append(m,CG);
 end try;
 end if;
-CG; Genus(CG);
+
 end if;
-print ".........";
+
 end for;
 
 //Two of these quotients we can rule out by comparing them mod p to the rank one
 // elliptic curve factor of the Jacobian. So we consider:
 
 P<[x]> := ProjectiveSpace(Rationals(),7);
-C1 := Curve(P, [24*x[1]^2 - 144*x[1]*x[4] + 240*x[4]^2 - 336*x[4]*x[5] - 24*x[5]^2 - 
-    12*x[6]*x[7] + 100*x[7]^2 - 27*x[6]*x[8] - 6*x[7]*x[8] - 3*x[8]^2,
-3*x[1]*x[2] - 3*x[6]*x[7] - 8*x[7]^2 + 3*x[6]*x[8] + 2*x[7]*x[8],
-2*x[1]*x[3] - 4*x[5]^2 - x[7]*x[8] + x[8]^2,
-12*x[1]*x[5] - 12*x[4]*x[5] + 12*x[5]^2 + 3*x[6]*x[7] - 10*x[7]^2 + 3*x[7]*x[8],
-18*x[1]*x[6] + 33*x[3]*x[6] - 60*x[4]*x[6] + 66*x[5]*x[6] + 20*x[4]*x[7] - 
-    88*x[5]*x[7] + 36*x[4]*x[8] - 38*x[5]*x[8],
-3*x[3]*x[6] - 12*x[4]*x[6] + 24*x[5]*x[6] + 12*x[1]*x[7] - 32*x[4]*x[7] + 
-    40*x[5]*x[7] + 8*x[5]*x[8],
-3*x[3]*x[6] - 3*x[5]*x[6] - 8*x[5]*x[7] + 3*x[1]*x[8] + 2*x[5]*x[8],
-3*x[2]^2 - 6*x[6]*x[8] - 4*x[7]*x[8],
-x[2]*x[3] - x[8]^2,
-4*x[2]*x[4] - 4*x[7]^2 - 4*x[7]*x[8] - x[8]^2,
-x[2]*x[5] - x[7]*x[8],
-9*x[2]*x[6] - 18*x[3]*x[6] - 24*x[5]*x[6] + 56*x[5]*x[7] - 36*x[4]*x[8] + 
-    24*x[5]*x[8],
--6*x[5]*x[6] + 3*x[2]*x[7] - 4*x[5]*x[7],
--6*x[3]*x[6] + 3*x[2]*x[8] - 4*x[5]*x[8],
-3*x[3]^2 - 12*x[5]^2 - 3*x[6]*x[8] + 4*x[7]*x[8] + 3*x[8]^2,
-12*x[3]*x[4] - 24*x[4]*x[5] - 6*x[6]*x[7] + 8*x[7]^2 - 3*x[6]*x[8] + 
-    10*x[7]*x[8] + 3*x[8]^2,
-6*x[3]*x[5] - 12*x[4]*x[5] + 12*x[5]^2 - 3*x[6]*x[7] + 4*x[7]^2 + 3*x[7]*x[8],
-x[3]*x[7] - x[5]*x[8],
-4*x[5]*x[7] + x[3]*x[8] - 4*x[4]*x[8] + 4*x[5]*x[8],
-18*x[6]^2 - 12*x[6]*x[7] + 20*x[7]^2 - 18*x[6]*x[8] - 12*x[7]*x[8] - 9*x[8]^2]); 
+C1 := l[2]; 
 
 //Unable to find a rational point, so we search for degree two models in hopes to produce a simpler model
 
@@ -120,12 +96,13 @@ AssignNames(~P, vars);
 phi := map<C1 -> P | [y,x1,x2]>;
 C2:=Image(phi);
 
-//C2 is given by yv^2 - 4*x1v^4 + 2*yv*x2v^2 - 4*x1v^2*x2v^2 + 2*x2v^4, or more familiarly, y^2-4x^4+2y-4x^2+2.
+//C2 is given by yv^2 - 4*x1v^4 - 2*yv*x2v^2 - 4*x1v^2*x2v^2 + 2*x2v^4, or more familiarly, y^2-4x^4-2y-4x^2+2.
 //By completing the square, we get the isomorphic model:
 
 P<x> := PolynomialRing(Rationals());
-f := 4*x^4+4*x^2-1;
-H := HyperellipticCurve(f);
-RationalPoints(H : Bound := 10000); // This produces many points
+f := 4*x^4+4*x^2-2;
+g:= P!-2;
+H := HyperellipticCurve(f,g);
+
 E := EllipticCurve(H);
 Rank(E); //1
