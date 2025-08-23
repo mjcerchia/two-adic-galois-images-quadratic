@@ -126,11 +126,11 @@ C2:=Image(phi);
 C2;
 /*
 Curve over Rational Field defined by
-yv^2 + 2*x1v^4 + 32*x1v^2*x2v^2 + 256*x2v^4
+yv^2 + 2*x1v^4 + 16*x1v^2*x2v^2 + 64*x2v^4
 */
 
 P<x> := PolynomialRing(Rationals());
-f := -(2*x^4 + 32*x^2*x + 256*x);
+f := -(2*x^4 + 16*x^2 + 64*x);
 H := HyperellipticCurve(f);
 pt := H!RationalPoints(H : Bound := 10000)[1];
 
