@@ -130,7 +130,7 @@ yv^2 + 2*x1v^4 + 16*x1v^2*x2v^2 + 64*x2v^4
 */
 
 P<x> := PolynomialRing(Rationals());
-f := -(2*x^4 + 16*x^2 + 64*x);
+f := -(2*x^4 + 16*x^2 + 64);
 H := HyperellipticCurve(f);
 pt := H!RationalPoints(H : Bound := 10000)[1];
 
