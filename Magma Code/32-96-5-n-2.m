@@ -1,10 +1,10 @@
-32.96.5.n.2
+
 /****************************************************************************** 
 Here is a summary of the argument.
 
 Let C be the modular curve with lmfdb label 32.96.5.n.2.
 We find there are three genus one quotients by an involution. 
-We are able to find a point on the second curve by intersecting with a hyperplane. From this, we are able to construct an elliptic curve, 
+We are able to find a point on one of the curves by intersecting with a hyperplane. From this, we are able to construct an elliptic curve, 
 which we find to be rank 1. 
 ******************************************************************************/
 P<x,y,z,w,t> := ProjectiveSpace(Rationals(),4);
