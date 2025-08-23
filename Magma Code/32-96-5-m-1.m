@@ -36,7 +36,7 @@ end if;
 
 end for;
 
-//The second of these quotients has the following model:
+
 P<[x]> := ProjectiveSpace(Rationals(),7);
 C1 := l[3];
 
