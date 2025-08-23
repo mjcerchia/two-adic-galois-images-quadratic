@@ -15,7 +15,7 @@ Stemp := Automorphisms(C);
 for s in Stemp do
 auts := Append(auts, S!s);
 end for;
-#auts eq #S;
+assert #auts eq #S;
 
 //There is one genus one quotient by an involution
 l := []; //list of genus 1 quotients by involutions
@@ -23,7 +23,7 @@ m:= []; //in case Magma complains that genus 1 curves and elliptic curves can't 
 for g in auts do
 if Order(g) eq 2 then
 AG := AutomorphismGroup(C,[g]);
-CG,prj := CurveQuotient(AG);prj;
+CG,prj := CurveQuotient(AG);
 if Genus(CG) eq 1 then
 try
 l := Append(l,CG);
@@ -31,15 +31,14 @@ catch e
 m := Append(m,CG);
 end try;
 end if;
-CG; Genus(CG);
+
 end if;
-print ".........";
+
 end for;
 
 //One of these quotients has the following model:
 P<[x]> := ProjectiveSpace(Rationals(),3);
-C1 := Curve(P,[499375*x[1]^2 - 126750*x[1]*x[2] - 28561*x[2]^2 - 2359296*x[3]*x[4],
-25*x[1]*x[3] - 169*x[2]*x[3] + 144*x[4]^2]);
+C1 := l[1];
 
   rationalPoints := function(D : Bound := 1)
     return {@D![t :t in tup]
@@ -50,7 +49,7 @@ C1 := Curve(P,[499375*x[1]^2 - 126750*x[1]*x[2] - 28561*x[2]^2 - 2359296*x[3]*x[
 DefiningEquations(D)} eq {0}
             @};
   end function;
-  rationalPoints(C1:Bound := 1);
+  
 pt :=   rationalPoints(C1:Bound := 1)[1];
 
 E:=EllipticCurve(C1,pt);
