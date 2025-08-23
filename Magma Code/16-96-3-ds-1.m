@@ -18,10 +18,7 @@ s:=iso<C->C|[u/4,y,z,-t,-w,4*x],[1/4*u,y,z,-t,-w,4*x]>;
 AG := AutomorphismGroup(C,[s]);
 CG,prj := CurveQuotient(AG);
 
-Genus(CG);
-
-CG;
 Pts:=PointSearch(CG,10000);
 
-E:=EllipticCurve(CG,Pts[1]);E;
+E:=EllipticCurve(CG,Pts[1]);
 Rank(E); // 1 true
