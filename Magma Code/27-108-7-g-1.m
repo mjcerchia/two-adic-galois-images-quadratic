@@ -1,4 +1,9 @@
-//27.108.7.g.1
+/****************************************************************************** 
+Here is a summary of the argument.
+
+Let C be the modular curve with lmfdb label 27.108.7.g.1. 
+Please see subsection 27.108.7.g.1 for an explanation of the argument. 
+******************************************************************************/
 
 P<x,y,z,w,t,u,v> := ProjectiveSpace(Rationals(), 6);
 
@@ -29,9 +34,9 @@ print ".......";
 end for;
 
 //243.2.a.a
-E := EllipticCurve([0, 0, 1, 0, -1]);
+E := EllipticCurve([0, 0, 1, 0, -1]); 
 print "Points of Jacobian factor ";
-#EllipticCurve(Curve(Reduction(E,7)));
+#EllipticCurve(Curve(Reduction(E,7))); // Jacobian of Genus 1 quotient must be isogenous to this
 
 //243.2.a.b
 E := EllipticCurve([0, 0, 1, 0, -61]);
