@@ -4,7 +4,7 @@ Here is a summary of the argument.
 
 Let C be the modular curve with lmfdb label 32.48.3.b.1. 
 We find there are five genus one quotients by an involution. 
-We are able to find a point on the second curve. From this, we are able to construct an elliptic curve, 
+We are able to find a point on one of these curves. From this, we are able to construct an elliptic curve, 
 which we find to have rank 1. 
 ******************************************************************************/
 P<x,y,z>:=ProjectiveSpace(Rationals(),2);
@@ -16,7 +16,7 @@ Stemp := Automorphisms(C);
 for s in Stemp do
 auts := Append(auts, S!s);
 end for;
-#auts eq #S;
+assert #auts eq #S;
 
 //There are three genus one quotients by an involution
 l := []; //list of genus 1 quotients by involutions
@@ -24,7 +24,7 @@ m:= []; //in case Magma complains that genus 1 curves and elliptic curves can't 
 for g in auts do
 if Order(g) eq 2 then
 AG := AutomorphismGroup(C,[g]);
-CG,prj := CurveQuotient(AG);prj;
+CG,prj := CurveQuotient(AG);
 if Genus(CG) eq 1 then
 try
 l := Append(l,CG);
@@ -32,15 +32,14 @@ catch e
 m := Append(m,CG);
 end try;
 end if;
-CG; Genus(CG);
+
 end if;
-print ".........";
+
 end for;
 
 //One of these quotients has the following model:
 P<[x]> := ProjectiveSpace(Rationals(),3);
-C1 := Curve(P,[81*x[1]*x[2] - 81*x[2]^2 - 32*x[3]^2,
-x[1]*x[3] - 2*x[2]*x[3] + x[4]^2]);
+C1 :=l[2];
 
   rationalPoints := function(D : Bound := 1)
     return {@D![t :t in tup]
@@ -51,8 +50,7 @@ x[1]*x[3] - 2*x[2]*x[3] + x[4]^2]);
 DefiningEquations(D)} eq {0}
             @};
   end function;
-  rationalPoints(C1:Bound := 1);
-pt :=   rationalPoints(C1:Bound := 1)[1];
+pt := rationalPoints(C1:Bound := 1)[1];
 
 E:=EllipticCurve(C1,pt);
 Rank(E); //1
