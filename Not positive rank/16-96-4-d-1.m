@@ -6,7 +6,7 @@ We find there are two genus one quotients by an involution, but both are rank 0.
 NOT bielliptic. 
 ******************************************************************************/
 P<x,y,z,w> := ProjectiveSpace(Rationals(),3);
-C := Curve(P,[8*x^2 - 4*x*y - 8*y^2 + z^2 + 2*z*w - w^2, 2*x^3 - 4*x^2*y + 2*y^3 - y*z^2 - y*z*w]);
+C := Curve(P,[4*x^2 + 4*y^2 + z^2 + w^2, 2*x^2*z + 2*y^2*w + z^2*w + z*w^2]);
 
 S := AutomorphismGroup(C); 
 auts := [];
@@ -14,7 +14,7 @@ Stemp := Automorphisms(C);
 for s in Stemp do
 auts := Append(auts, S!s);
 end for;
-#auts eq #S;
+assert #auts eq #S;
 
 //There are two genus one quotients by an involution
 l := []; //list of genus 1 quotients by involutions
@@ -22,7 +22,7 @@ m:= []; //in case Magma complains that genus 1 curves and elliptic curves can't 
 for g in auts do
 if Order(g) eq 2 then
 AG := AutomorphismGroup(C,[g]);
-CG,prj := CurveQuotient(AG);prj;
+CG,prj := CurveQuotient(AG);
 if Genus(CG) eq 1 then
 try
 l := Append(l,CG);
@@ -30,36 +30,13 @@ catch e
 m := Append(m,CG);
 end try;
 end if;
-CG; Genus(CG);
+
 end if;
-print ".........";
+
 end for;
 
-l;
-/*
-[
-    Curve over Rational Field defined by
-    x[1]^2 - 2*x[2]*x[4] - 5*x[4]^2 + 4*x[5]^2 + 4*x[5]*x[6] - 8*x[6]^2,
-    x[1]*x[2] - x[4]^2,
-    x[1]*x[3] - x[5]^2,
-    x[1]*x[4] - x[2]*x[4] - 2*x[4]^2 + 4*x[5]*x[6] - 4*x[6]^2,
-    x[1]*x[5] + 4*x[3]*x[5] - 2*x[4]*x[5] - 4*x[3]*x[6] - x[4]*x[6],
-    -x[4]*x[5] + x[1]*x[6],
-    x[2]*x[3] - x[6]^2,
-    x[2]*x[5] - x[4]*x[6],
-    x[3]*x[4] - x[5]*x[6],
-    Curve over Rational Field defined by
-    x[1]*x[2] - x[4]^2,
-    x[1]*x[3] - x[5]^2,
-    4*x[1]*x[4] - 4*x[2]*x[4] + 8*x[4]^2 + x[5]^2 - x[5]*x[6],
-    -x[4]*x[5] + x[1]*x[6],
-    4*x[2]^2 - 8*x[2]*x[4] - 4*x[4]^2 - x[5]*x[6] + x[6]^2,
-    x[2]*x[3] - x[6]^2,
-    x[2]*x[5] - x[4]*x[6],
-    -x[3]*x[5] - 4*x[4]*x[5] + 4*x[2]*x[6] + x[3]*x[6] - 8*x[4]*x[6],
-    x[3]*x[4] - x[5]*x[6]
-]
-*/
+#l; // 2
+
 
 C1 := l[1];
   rationalPoints := function(D : Bound := 1)
@@ -71,13 +48,13 @@ C1 := l[1];
 DefiningEquations(D)} eq {0}
             @};
   end function;
-  rationalPoints(C1:Bound := 1);
+  
 pt :=   rationalPoints(C1:Bound := 1)[1];
 
 E:=EllipticCurve(C1,pt);
 Rank(E); // 0
 
-C1 := l[2];
+C2 := l[2];
   rationalPoints := function(D : Bound := 1)
     return {@D![t :t in tup]
               : tup in CartesianPower([-Bound..Bound],Dimension(AmbientSpace(D)\
@@ -87,8 +64,8 @@ C1 := l[2];
 DefiningEquations(D)} eq {0}
             @};
   end function;
-  rationalPoints(C1:Bound := 1);
-pt :=   rationalPoints(C1:Bound := 1)[1];
+  
+pt :=   rationalPoints(C2:Bound := 1)[1];
 
-E:=EllipticCurve(C1,pt);
+E:=EllipticCurve(C2,pt);
 Rank(E); //0
