@@ -2,8 +2,8 @@
 Here is a summary of the argument.
 
 Let C be the modular curve with lmfdb label 16.192.5.h.2.
-We compute the automorphism group over Q and find there is one genus one quotient by an involution. Over F5, it has 4 points.
-But the single rank one elliptic curve factor of the Jacobian has 10 points over F5.
+We compute the automorphism group over Q and find there is one genus one quotient by an involution. Over F13, it has 20 points.
+But the single rank one elliptic curve factor of the Jacobian has 14 points over F13.
 NOT bielliptic. 
 ******************************************************************************/
 P<x,y,z,w,t> := ProjectiveSpace(Rationals(),4);
@@ -16,7 +16,7 @@ Stemp := Automorphisms(C);
 for s in Stemp do
 auts := Append(auts, S!s);
 end for;
-#auts eq #S;
+assert #auts eq #S;
 
 
 //There is one genus one quotient by an involution
@@ -25,7 +25,7 @@ m:= []; //in case Magma complains that genus 1 curves and elliptic curves can't 
 for g in auts do
 if Order(g) eq 2 then
 AG := AutomorphismGroup(C,[g]);
-CG,prj := CurveQuotient(AG);prj;
+CG,prj := CurveQuotient(AG);
 if Genus(CG) eq 1 then
 try
 l := Append(l,CG);
@@ -33,41 +33,18 @@ catch e
 m := Append(m,CG);
 end try;
 end if;
-CG; Genus(CG);
+
 end if;
-print ".........";
+
 end for;
 
-l;
-/*
-[
-    Curve over Rational Field defined by
-    512*x[1]^2 + x[3]^2 - 512*x[7]^2,
-    x[1]*x[2] - x[7]^2,
-    x[1]*x[4] - x[3]*x[6],
-    x[1]*x[5] - x[4]*x[6],
-    x[3]*x[4] + 512*x[1]*x[6] - 512*x[7]*x[8],
-    -x[6]^2 + x[1]*x[7],
-    -x[6]*x[7] + x[1]*x[8],
-    512*x[2]^2 - x[5]^2 - 512*x[7]^2,
-    x[2]*x[3] - x[5]*x[7],
-    x[2]*x[4] - x[5]*x[8],
-    x[2]*x[6] - x[7]*x[8],
-    x[2]*x[7] - x[8]^2,
-    -x[4]*x[5] - 512*x[6]*x[7] + 512*x[2]*x[8],
-    x[3]*x[5] + 512*x[6]^2 - 512*x[8]^2,
-    -x[4]*x[6] + x[3]*x[7],
-    -x[5]*x[6] + x[3]*x[8],
-    x[4]^2 + 512*x[6]^2 - 512*x[8]^2,
-    -x[5]*x[6] + x[4]*x[7],
-    -x[5]*x[7] + x[4]*x[8],
-    -x[7]^2 + x[6]*x[8]
-]
-*/
+#l;//1
 
-#EllipticCurve(Curve(Reduction(l[1],5))); //4
 
+#EllipticCurve(Curve(Reduction(l[1],13))); //20
+
+//The rank 1 jacobian factor
 Qx<x> := PolynomialRing(Rationals());
-E := EllipticCurve(x^3 - 2*x);
-#EllipticCurve(Curve(Reduction(E,5))); //10
+E := EllipticCurve(x^3+x^2-13*x-21); 
 
+#EllipticCurve(Curve(Reduction(E,13))); //14
