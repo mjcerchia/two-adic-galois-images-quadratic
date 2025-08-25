@@ -17,7 +17,7 @@ Stemp := Automorphisms(C3);
 for s in Stemp do
 auts := Append(auts, S!s);
 end for;
-#auts eq #S;
+assert #auts eq #S;
 
 
 //There is one genus one quotient by an involution
@@ -26,7 +26,7 @@ m:= []; //in case Magma complains that genus 1 curves and elliptic curves can't 
 for g in auts do
 if Order(g) eq 2 then
 AG := AutomorphismGroup(C3,[g]);
-CG,prj := CurveQuotient(AG);prj;
+CG,prj := CurveQuotient(AG);
 if Genus(CG) eq 1 then
 try
 l := Append(l,CG);
@@ -34,40 +34,13 @@ catch e
 m := Append(m,CG);
 end try;
 end if;
-CG; Genus(CG);
+
 end if;
-print ".........";
+
 end for;
 
-l;
-/*
-[
-    Curve over GF(3) defined by
-    2*x[1]*x[5] + x[3]*x[5] + x[2]*x[6] + x[5]*x[6] + x[1]*x[8],
-    2*x[1]*x[4] + x[3]*x[6],
-    2*x[1]*x[5] + x[3]*x[7],
-    2*x[5]*x[6] + x[3]*x[8],
-    2*x[1]*x[2] + 2*x[2]*x[4] + x[4]^2 + x[1]*x[5] + 2*x[2]*x[5] + x[5]*x[6] + 
-        2*x[2]*x[7] + 2*x[1]*x[8] + x[2]*x[8],
-    x[1]*x[2] + 2*x[2]*x[4] + x[2]*x[5] + x[4]*x[5] + 2*x[2]*x[6] + 2*x[5]*x[6] 
-        + x[2]*x[7] + 2*x[2]*x[8],
-    x[1]*x[5] + x[2]*x[6] + x[4]*x[6] + x[5]*x[6] + x[1]*x[8],
-    2*x[5]*x[6] + x[4]*x[7],
-    x[2]*x[3] + x[2]*x[4] + x[2]*x[6] + x[2]*x[8] + x[4]*x[8],
-    2*x[2]*x[3] + x[2]*x[4] + x[5]^2 + x[2]*x[6] + x[2]*x[8],
-    x[1]*x[2] + x[2]*x[3] + 2*x[1]*x[4] + x[3]*x[4] + 2*x[2]*x[6] + 2*x[5]*x[6] 
-        + x[1]*x[7] + 2*x[1]*x[8],
-    2*x[2]*x[3] + x[5]*x[7],
-    2*x[2]*x[4] + x[5]*x[8],
-    2*x[1]*x[5] + x[6]^2 + 2*x[1]*x[7],
-    x[6]*x[7] + 2*x[1]*x[8],
-    2*x[1]*x[2] + 2*x[2]*x[3] + x[6]*x[8],
-    2*x[1]*x[2] + x[7]^2,
-    2*x[2]*x[6] + x[7]*x[8],
-    2*x[2]*x[5] + 2*x[2]*x[7] + x[8]^2,
-    2*x[1]*x[3] + x[3]^2 + x[1]*x[4] + x[1]*x[6] + x[1]*x[8]
-]
-*/
+#l; //1
+
 
 #EllipticCurve(Curve(l[1])); //4
 Qx<x> := PolynomialRing(Rationals());
