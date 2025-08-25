@@ -1,4 +1,4 @@
-//16.96.5.dx.1
+/* Summary : There are no genus 1 quotients mod 3 which is a prime of smooth reduction so this curve is not bielliptic.*/
 
 P<x,y,z,w,t> := ProjectiveSpace(Rationals(),4);
 C := Curve(P,[-x*w + y*z, 4*x^2 + y^2 - 4*z^2 - w^2 - w*t, 4*x^2 - y^2 + 4*z^2 + 2*w^2 + 3*w*t - t^2]);
@@ -12,7 +12,7 @@ for s in S do
 
 s1:=G!s;
  
-Order(s1);
+
 if Order(s1) eq 2 then
 
 AG := AutomorphismGroup(Cp,[s1]);
