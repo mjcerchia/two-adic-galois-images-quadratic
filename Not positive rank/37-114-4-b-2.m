@@ -2,22 +2,21 @@
 Here is a summary of the argument.
 
 Let C be the modular curve with lmfdb label 37.114.4.b.2
-We compute the automorphism group over F3 and find there is one genus one quotient by an involution. It has 3 points.
-The single rank one elliptic curve factor of the Jacobian has 7 points over F3.
+We compute the automorphism group over F5 and find there is one genus one quotient by an involution. It has 6 points.
+The single rank one elliptic curve factor of the Jacobian has 8 points over F5.
 NOT bielliptic. 
 ******************************************************************************/
 P<x,y,z,w>:=ProjectiveSpace(Rationals(),3);
-C := Curve(P,[x^2 - x*z - x*w - y*z + z^2 + z*w, x^3 - x^2*y + x*y^2 - x*z*w\
- - y^2*z - y^2*w + 2*y*w^2 + z^2*w - w^3]);
-C3 := Curve(Reduction(C,3)); 
-S := AutomorphismGroup(C3); 
+C := Curve(P,[12*x^2 - 13*x*y - x*z + x*w + 12*y^2 - y*z + y*w - z^2 + z*w - w^2, 160*x^2*y - 21*x^2*z + 44*x^2*w + 172*x*y^2 + 31*x*y*z - 22*x*y*w - 23*x*z^2 + 16*x*z*w - 55*x*w^2 + 49*y^3 + 89*y^2*z - 66*y^2*w + 87*y*z^2 - 94*y*z*w + 55*y*w^2 + 10*z^3 - 39*z^2*w + 6*z*w^2 + 11*w^3]);
+C5 := Curve(Reduction(C,5)); 
+S := AutomorphismGroup(C5); 
 
 auts := [];
-Stemp := Automorphisms(C3);
+Stemp := Automorphisms(C5);
 for s in Stemp do
 auts := Append(auts, S!s);
 end for;
-#auts eq #S;
+assert #auts eq #S;
 
 
 //There is one genus one quotient by an involution
@@ -25,8 +24,8 @@ l := []; //list of genus 1 quotients by involutions
 m:= []; //in case Magma complains that genus 1 curves and elliptic curves can't be in the same list.
 for g in auts do
 if Order(g) eq 2 then
-AG := AutomorphismGroup(C3,[g]);
-CG,prj := CurveQuotient(AG);prj;
+AG := AutomorphismGroup(C5,[g]);
+CG,prj := CurveQuotient(AG);
 if Genus(CG) eq 1 then
 try
 l := Append(l,CG);
@@ -34,36 +33,14 @@ catch e
 m := Append(m,CG);
 end try;
 end if;
-CG; Genus(CG);
+
 end if;
-print ".........";
+
 end for;
 
-l;
-/*
-[
-    Curve over GF(3) defined by
-    2*x[1]*x[2] + x[2]^2 + 2*x[2]*x[4] + x[2]*x[5] + x[3]*x[5] + x[1]*x[6] + 
-        x[2]*x[6] + x[5]*x[6],
-    x[1]*x[2] + 2*x[2]^2 + 2*x[2]*x[3] + 2*x[1]*x[4] + 2*x[2]*x[4] + x[1]*x[5] +
-        x[1]*x[6] + x[2]*x[6] + x[3]*x[6],
-    x[1]*x[2] + 2*x[2]^2 + x[2]*x[3] + x[2]*x[4] + x[4]^2 + x[1]*x[5] + 
-        2*x[2]*x[5] + x[1]*x[6] + x[5]*x[6],
-    2*x[1]*x[2] + x[2]^2 + 2*x[2]*x[3] + 2*x[2]*x[4] + 2*x[1]*x[5] + x[4]*x[5] +
-        x[1]*x[6] + x[2]*x[6],
-    x[1]*x[2] + 2*x[2]^2 + x[1]*x[4] + x[1]*x[5] + x[2]*x[5] + 2*x[1]*x[6] + 
-        x[4]*x[6],
-    x[1]*x[2] + 2*x[2]^2 + 2*x[2]*x[3] + 2*x[1]*x[4] + 2*x[2]*x[4] + x[1]*x[5] +
-        x[5]^2 + x[1]*x[6] + x[2]*x[6],
-    x[1]*x[2] + 2*x[2]^2 + x[2]*x[3] + x[2]*x[4] + x[3]*x[4] + x[2]*x[5] + 
-        2*x[1]*x[6] + 2*x[2]*x[6] + x[5]*x[6],
-    x[2]*x[3] + 2*x[1]*x[4] + x[2]*x[4] + 2*x[2]*x[5] + 2*x[1]*x[6] + x[6]^2,
-    x[1]^2 + x[1]*x[2] + x[2]^2 + x[1]*x[3] + x[2]*x[3] + x[3]^2 + x[2]*x[5] + 
-        2*x[2]*x[6]
-]
-*/
+#l; //1
+
 #EllipticCurve(Curve(l[1])); //6
 
 E := EllipticCurve([0,0,1,-1,0]);
-#EllipticCurve(Curve(Reduction(E,3))); //7
-
+#EllipticCurve(Curve(Reduction(E,5))); //8
