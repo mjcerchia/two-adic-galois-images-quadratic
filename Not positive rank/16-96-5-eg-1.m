@@ -10,13 +10,13 @@ C := Curve(P,[2*x*z - y*w + y*t, 2*x^2 + 4*y^2 - 4*z^2 - w^2 + w*t, 2*x^2 - 4*y^
 
 S := AutomorphismGroup(C); 
 
-S := AutomorphismGroup(C); 
+
 auts := [];
 Stemp := Automorphisms(C);
 for s in Stemp do
 auts := Append(auts, S!s);
 end for;
-#auts eq #S;
+assert #auts eq #S;
 
 
 //There are no genus one quotients by an involution
@@ -25,7 +25,7 @@ m:= []; //in case Magma complains that genus 1 curves and elliptic curves can't 
 for g in auts do
 if Order(g) eq 2 then
 AG := AutomorphismGroup(C,[g]);
-CG,prj := CurveQuotient(AG);prj;
+CG,prj := CurveQuotient(AG);
 if Genus(CG) eq 1 then
 try
 l := Append(l,CG);
@@ -33,9 +33,9 @@ catch e
 m := Append(m,CG);
 end try;
 end if;
-CG; Genus(CG);
+
 end if;
-print ".........";
+
 end for;
 
-l;
+l; //empty
