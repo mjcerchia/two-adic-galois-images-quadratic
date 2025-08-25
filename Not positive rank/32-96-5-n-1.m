@@ -17,7 +17,7 @@ Stemp := Automorphisms(C);
 for s in Stemp do
 auts := Append(auts, S!s);
 end for;
-#auts eq #S;
+assert #auts eq #S;
 
 
 //There are three genus one quotients by an involution
@@ -26,7 +26,7 @@ m:= []; //in case Magma complains that genus 1 curves and elliptic curves can't 
 for g in auts do
 if Order(g) eq 2 then
 AG := AutomorphismGroup(C,[g]);
-CG,prj := CurveQuotient(AG);prj;
+CG,prj := CurveQuotient(AG);
 if Genus(CG) eq 1 then
 try
 l := Append(l,CG);
@@ -34,79 +34,13 @@ catch e
 m := Append(m,CG);
 end try;
 end if;
-CG; Genus(CG);
+
 end if;
-print ".........";
+
 end for;
 
-l;
-/*
-[
-    Curve over Rational Field defined by
-    x[1]^2 - 32768*x[4]*x[6] + 1024*x[7]^2,
-    x[1]*x[2] - x[7]^2,
-    x[1]*x[3] + 512*x[6]^2,
-    x[1]*x[4] - x[3]*x[6],
-    x[1]*x[5] + 512*x[6]*x[8],
-    64*x[3]*x[4] + x[1]*x[6] + 1024*x[7]*x[8],
-    x[1]*x[7] + 1024*x[2]*x[7] - 32768*x[4]*x[8],
-    -x[6]*x[7] + x[1]*x[8],
-    1024*x[2]^2 + 64*x[5]^2 + x[7]^2,
-    x[2]*x[3] + 512*x[8]^2,
-    x[2]*x[4] - x[5]*x[8],
-    x[2]*x[6] - x[7]*x[8],
-    64*x[4]*x[5] + x[6]*x[7] + 1024*x[2]*x[8],
-    x[3]^2 + 512*x[4]*x[6],
-    x[3]*x[5] + 512*x[4]*x[8],
-    x[3]*x[7] + 512*x[6]*x[8],
-    -x[5]*x[6] + x[3]*x[8],
-    64*x[4]^2 + x[6]^2 + 1024*x[8]^2,
-    -x[5]*x[6] + x[4]*x[7],
-    x[5]*x[7] + 512*x[8]^2,
-    Curve over Rational Field defined by
-    128*x[1]^2 + x[3]^2 + 16*x[7]^2,
-    x[1]*x[2] - x[7]^2,
-    x[1]*x[4] - x[3]*x[6],
-    x[1]*x[5] - x[4]*x[6],
-    x[3]*x[4] + 128*x[1]*x[6] + 16*x[7]*x[8],
-    -x[6]^2 + x[1]*x[7],
-    -x[6]*x[7] + x[1]*x[8],
-    16*x[2]^2 + x[5]^2 + 128*x[7]^2,
-    x[2]*x[3] - x[5]*x[7],
-    x[2]*x[4] - x[5]*x[8],
-    x[2]*x[6] - x[7]*x[8],
-    x[2]*x[7] - x[8]^2,
-    x[4]*x[5] + 128*x[6]*x[7] + 16*x[2]*x[8],
-    x[3]*x[5] + 128*x[6]^2 + 16*x[8]^2,
-    -x[4]*x[6] + x[3]*x[7],
-    -x[5]*x[6] + x[3]*x[8],
-    x[4]^2 + 128*x[6]^2 + 16*x[8]^2,
-    -x[5]*x[6] + x[4]*x[7],
-    -x[5]*x[7] + x[4]*x[8],
-    -x[7]^2 + x[6]*x[8],
-    Curve over Rational Field defined by
-    128*x[1]^2 - x[3]^2 - 16*x[7]^2,
-    x[1]*x[2] - x[7]^2,
-    x[1]*x[4] - x[3]*x[6],
-    x[1]*x[5] - x[4]*x[6],
-    -x[3]*x[4] + 128*x[1]*x[6] - 16*x[7]*x[8],
-    -x[6]^2 + x[1]*x[7],
-    -x[6]*x[7] + x[1]*x[8],
-    16*x[2]^2 + x[5]^2 - 128*x[7]^2,
-    x[2]*x[3] - x[5]*x[7],
-    x[2]*x[4] - x[5]*x[8],
-    x[2]*x[6] - x[7]*x[8],
-    x[2]*x[7] - x[8]^2,
-    x[4]*x[5] - 128*x[6]*x[7] + 16*x[2]*x[8],
-    x[3]*x[5] - 128*x[6]^2 + 16*x[8]^2,
-    -x[4]*x[6] + x[3]*x[7],
-    -x[5]*x[6] + x[3]*x[8],
-    x[4]^2 - 128*x[6]^2 + 16*x[8]^2,
-    -x[5]*x[6] + x[4]*x[7],
-    -x[5]*x[7] + x[4]*x[8],
-    -x[7]^2 + x[6]*x[8]
-]
-*/
+#l; //
+
 
 #EllipticCurve(Curve(Reduction(l[1],5))); //4
 #EllipticCurve(Curve(Reduction(l[3],5))); //2
@@ -145,21 +79,6 @@ coeffs := [ 0, 1 ];
     end for;
     end if;
     end for;
-    ideals;
-    
-ideals[1];
-/*
-[
-    X[1]^2 + 1/128*X[3]^2,
-    X[2],
-    X[4],
-    X[5],
-    X[6],
-    X[7],
-    X[8]
-]
-*/
-
 
 //build a new model
 gens := ideals[1];
