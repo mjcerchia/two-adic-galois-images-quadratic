@@ -348,7 +348,17 @@ H := HyperellipticCurve(f,g);H;
 IsLocallySolvable(H,2);//false
 
 
+// 8.48.1.bi.1
 
+P<x,y,z,w> := PolynomialRing(Rationals(),4);
+C := Curve(ProjectiveSpace(P),[2*x^2 + 3*x*y + y*z - z^2 + w^2, 4*x^2 - 2*x*y + y^2 - 2*y*z + 2*z^2]);
+c := GenusOneModel(C);
+c2 := DoubleGenusOneModel(c);
+P<t> := PolynomialRing(Rationals());
+c2;
+f:=7*t^4 - 34*t^3 + 36*t^2 + 8*t;
+H := HyperellipticCurve(f);H;
+RationalPoints(H:Bound:=100);
 
 
 
