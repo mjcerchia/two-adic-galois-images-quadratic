@@ -457,6 +457,9 @@ end for;
 1
 ............... */ // Upper bound is N*b
 
+// The following functions are taken from https://math.mit.edu/~drew/SZ16/g0groups.m with minor modifications.
+
+
 function gl2DetIndex(H)
     M,pi:=MultiplicativeGroup(BaseRing(H));
     return Index(M,sub<M|[Inverse(pi)(Determinant(h)):h in Generators(H)]>);
