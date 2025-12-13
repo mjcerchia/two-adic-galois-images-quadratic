@@ -80,8 +80,8 @@ gonality_equals_2:=[ "8B3", "10B3", "12C3", "12D3", "12E3", "12F3", "12G3", "12H
 /* The files pre.m, csg.m and csg24.dat are taken from Cummins-Pauli database of congruence subgroups available at
 https://math-sites.uncg.edu/sites/pauli/congruence/  */
 
-load "csg.m (1)/pre.m";  //Please change this according to your local directory.
-load "csg.m (1)/csg.m"; 
+load ".../pre.m";  //Please change this according to your local directory.
+load ".../csg.m"; 
 load "csg24.dat"; 
 filename:="CPdata.dat"; 
 I:=Open(filename,"w"); 
