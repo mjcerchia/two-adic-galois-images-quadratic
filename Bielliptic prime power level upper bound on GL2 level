@@ -1,4 +1,4 @@
-// The following is the code to produce candidate congruence subgroups for bielliptic modular curves.
+// The following file contains the code to produce congruence subgroups that we need to consider for bielliptic modular curves.
 
 bielliptic_list:=    
 [ "6A1", "6B1", "6C1", "6D1", "6E1", "6F1", "7A1", "7B1", "7C1", "8A1", "8B1", "8C1", "8D1", "8E1", "8F1", "8G1", "8H1", "8I1", 
