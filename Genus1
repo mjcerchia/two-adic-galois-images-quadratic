@@ -1,3 +1,246 @@
+// computing the upper bounds on GL_2 level
+/* The files pre.m, csg.m and csg24.dat are taken from Cummins-Pauli database of congruence subgroups available at
+https://math-sites.uncg.edu/sites/pauli/congruence/  */
+
+load ".../pre.m"; //Please modify these according to the local directory.
+load ".../csg.m"; 
+load "csg24.dat"; 
+filename:="CPdata.dat"; 
+I:=Open(filename,"w"); 
+WriteObject(I, L);
+
+// Run this code in Magma from the directory this file is in.
+cp_data:=[];
+filename:="CPdata.dat";  
+I:=Open(filename, "r"); 
+_,cp_data:=ReadObjectCheck(I); 
+
+// We only keep track of the entries that are useful for us.
+CPRec := recformat< level, genus, index : RngIntElt,
+                 matgens,
+                name: MonStgElt>;
+cp_data_new:=[];
+for i in [1..#cp_data] do
+    r:=cp_data[i];
+    s:= rec<CPRec | level:=r`level, genus:=r`genus, index:=r`index, name:=r`name>;
+    s`matgens:=[[Integers()!a:a in A] : A in r`matgens];
+    cp_data_new:=cp_data_new cat [s];
+end for;
+
+CongSubgroup := recformat<N:RngIntElt, label:MonStgElt, gens:SeqEnum, index:RngIntElt, H:GrpMat>;
+
+CPgenus1list:=AssociativeArray();
+
+
+for r in cp_data_new do
+    
+    if #PrimeDivisors(r`level) eq 1 and r`genus eq 1 then 
+    s`matgens:=[[Integers()!a:a in A] : A in r`matgens];
+    CPgenus1list[r`name]:= rec<CongSubgroup | N:=r`level,  label:=r`name, gens:=s`matgens, index:=r`index>;
+    end if;
+    
+end for;
+
+keys:=[k: k in Keys(CPgenus1list)];
+level:=[CPgenus1list[k]`N:k in keys];
+ParallelSort(~level,~keys);
+for k in keys do;
+    Gamma:=CPgenus1list[k];	
+	N:=Gamma`N;
+	SL2:=SL(2,Integers(N));
+	Gamma`H:=sub< SL2 | Gamma`gens cat [[-1,0,0,-1]]>;
+    CPgenus1list[k] :=Gamma;
+end for;
+
+
+keys:=[k: k in Keys(CPgenus1list)];
+level:=[CPgenus1list[k]`N:k in keys];
+ParallelSort(~level,~keys);
+for k in keys do;
+SL2:=SL(2,Integers(CPgenus1list[k]`N));
+    N:= Normalizer(SL2,CPgenus1list[k]`H);
+    N1:=quo<N|CPgenus1list[k]`H>;
+    s:=[];
+    for n in N1 do;
+        x:=0;
+        t:=Factorisation(Order(n));
+        // checking if for every p|Order(n) does p|CPlist[k]`N
+        for p in t do;
+            if CPgenus1list[k]`N mod p[1] eq 0 then x:=x+1; end if;
+        end for;
+        if x eq #t then s:=s cat [Order(n)];end if;
+    end for;
+    b:=Lcm(s);
+    
+   
+    if ((CPgenus1list[k]`N) mod 2 eq 0 ) and ((CPgenus1list[k]`N) mod 4 ne 0) then
+        b:=2*b;
+    end if;
+    k;b;
+    print "...............";
+end for;   
+
+/*7C1
+1
+...............
+7A1
+1
+...............
+7B1
+1
+...............
+8H1
+2
+...............
+8I1
+4
+...............
+8A1
+4
+...............
+8G1
+4
+...............
+8K1
+4
+...............
+8C1
+2
+...............
+8D1
+2
+...............
+8F1
+4
+...............
+8B1
+4
+...............
+8E1
+2
+...............
+8J1
+2
+...............
+9D1
+3
+...............
+9F1
+3
+...............
+9H1
+3
+...............
+9C1
+3
+...............
+9A1
+3
+...............
+9B1
+1
+...............
+9G1
+3
+...............
+9E1
+3
+...............
+11B1
+1
+...............
+11A1
+1
+...............
+11C1
+1
+...............
+11D1
+1
+...............
+16B1
+4
+...............
+16M1
+4
+...............
+16I1
+2
+...............
+16F1
+4
+...............
+16A1
+4
+...............
+16J1
+2
+...............
+16C1
+2
+...............
+16H1
+4
+...............
+16D1
+2
+...............
+16K1
+2
+...............
+16E1
+4
+...............
+16L1
+2
+...............
+16G1
+2
+...............
+17B1
+1
+...............
+17A1
+1
+...............
+17C1
+1
+...............
+19A1
+1
+...............
+19B1
+1
+...............
+27C1
+3
+...............
+27A1
+3
+...............
+27B1
+3
+...............
+32C1
+2
+...............
+32D1
+2
+...............
+32E1
+4
+...............
+32B1
+4
+...............
+32A1
+4
+...............
+49A1
+1
+...............*/
+
+//******************************************************************
 load "Genus 1 data_LMFDB.m"; 
 Genus1LMFDBSubgroup := recformat<label:MonStgElt, gens:SeqEnum, H:GrpMat>;
 Genus1LMFDBlist:=AssociativeArray();
