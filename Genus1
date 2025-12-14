@@ -597,6 +597,7 @@ assert GL2ContainsCC(G2);
 end for;
 
 /*remaining :={ "8.48.1.bi.1", "9.81.1.a.1", "16.96.1.t.1", "16.48.1.l.1", "16.64.1.a.1", "16.64.1.b.1", "16.96.1.k.1"} */
+// All these groups are conjugate to their own transpose.
 
 // We now provide the supporting code for remaining cases, "16.48.1.l.1" is discussed in our manuscript, we show that it has infinitely many quadratic points.
 
