@@ -1,4 +1,46 @@
-Candidates:={"7.42.1.a.1", "7.42.1.b.1", "7.56.1.a.1", "7.56.1.b.1", "7.84.1.a.1", "8.12.1.a.1", "8.12.1.b.1", "8.12.1.c.1", "8.12.1.d.1", "8.24.1.a.1", "8.24.1.b.1", "8.24.1.ba.1", "8.24.1.bb.1",
+load "Genus 1 data_LMFDB.m"; 
+Genus1LMFDBSubgroup := recformat<label:MonStgElt, gens:SeqEnum, H:GrpMat>;
+Genus1LMFDBlist:=AssociativeArray();
+
+for r in data1 do
+    
+     Genus1LMFDBlist[r[1]]:= rec<Genus1LMFDBSubgroup  | label:=r[1], gens:=r[3]>;
+end for;
+
+load "Genus 0 data.m";
+
+Genus0LMFDBSubgroup := recformat<label:MonStgElt, gens:SeqEnum, H:GrpMat>;
+Genus0LMFDBlist:=AssociativeArray();
+
+for r in data0 do
+    Genus0LMFDBlist[r[1]]:= rec<Genus0LMFDBSubgroup  | label:=r[1], gens:=r[3]>;
+end for;
+
+AttachSpec("Modular-main (2)/Modular-main/Modular.spec"); //Please change it according to local directory
+
+// We check if our candidate genus 1 curve is an elliptic curve or not
+possdeg2map:=[];
+ellipticcurves:=[];
+for tuple in data1 do;
+label:=tuple[1];
+
+level:=StringToInteger(Split(label,".")[1]);
+gens := tuple[3];
+G:=sub<GL(2,Integers(level))|gens>;
+Gt:=sub<GL(2,Integers(level))|[Transpose(GL(2,Integers(level))!g): g in gens]>;
+X:=CreateModularCurveRec(Gt);
+XG:=FindModelOfXG(X);
+C := Curve(ProjectiveSpace(Rationals(), Rank(Parent((XG`psi)[1]))-1),XG`psi);
+Pts:=PointSearch(C,1000);
+if #Pts eq 0 then
+possdeg2map:=possdeg2map cat [label];
+else
+ellipticcurves:=ellipticcurves cat [label];
+end if;
+end for;
+
+
+/*Candidates:={"7.42.1.a.1", "7.42.1.b.1", "7.56.1.a.1", "7.56.1.b.1", "7.84.1.a.1", "8.12.1.a.1", "8.12.1.b.1", "8.12.1.c.1", "8.12.1.d.1", "8.24.1.a.1", "8.24.1.b.1", "8.24.1.ba.1", "8.24.1.bb.1",
 "8.24.1.bc.1", "8.24.1.bd.1", "8.24.1.be.1", "8.24.1.bf.1", "8.24.1.c.1", "8.24.1.d.1", "8.24.1.e.1", "8.24.1.f.1", "8.24.1.g.1", "8.24.1.h.1", "8.24.1.i.1", "8.24.1.j.1", "8.24.1.k.1", "8.24.1.l.1",
 "8.24.1.m.1", "8.24.1.n.1", "8.24.1.o.1", "8.24.1.p.1", "8.24.1.q.1", "8.24.1.r.1", "8.24.1.s.1", "8.24.1.t.1", "8.24.1.u.1", "8.24.1.v.1", "8.24.1.w.1", "8.24.1.x.1", "8.24.1.y.1", "8.24.1.z.1",
 "8.32.1.a.1", "8.32.1.b.1", "8.32.1.c.1", "8.32.1.d.1", "8.48.1.a.1", "8.48.1.b.1", "8.48.1.ba.1", "8.48.1.bb.1", "8.48.1.bc.1", "8.48.1.bd.1", "8.48.1.be.1", "8.48.1.bf.1", "8.48.1.bg.1", "8.48.1.bh.1",
