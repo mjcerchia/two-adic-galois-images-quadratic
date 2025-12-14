@@ -68,7 +68,7 @@ end for;
 "32.96.1.b.2", "32.96.1.c.1", "32.96.1.c.2", "32.96.1.d.1", "32.96.1.d.2", "32.96.1.e.1", "32.96.1.e.2", "32.96.1.f.1", "32.96.1.f.2", "32.96.1.g.1", "32.96.1.g.2", "32.96.1.h.1", "32.96.1.h.2",
 "49.56.1.a.1"}
 
-elliptic curves:={"7.42.1.b.1"
+ellipticcurves:={"7.42.1.b.1"
 "7.56.1.a.1"
 "7.56.1.b.1"
 "7.84.1.a.1"
@@ -263,9 +263,97 @@ elliptic curves:={"7.42.1.b.1"
 "32.96.1.f.1"
 "32.96.1.f.2"
 "32.96.1.h.1"
-"49.56.1.a.1", "27.108.1.b.1"}
+"49.56.1.a.1", "27.108.1.b.1"}*/
 
-degree 2 map to P^1:={"7.42.1.a.1", "8.24.1.bc.1", "8.24.1.e.1", "8.24.1.g.1", "8.24.1.h.1", "8.24.1.i.1", "8.24.1.j.1", "8.24.1.k.1", "8.24.1.p.1", "8.24.1.q.1", "8.24.1.v.1", "8.24.1.z.1", 
+
+possdeg2map:=[<"7.42.1.a.1","7.21.0.a.1">,<"8.24.1.bc.1","8.12.0.u.1">,<"8.24.1.e.1","8.12.0.w.1">,<"8.24.1.g.1","8.12.0.x.1">,<"8.24.1.h.1","8.12.0.f.1">,<"8.24.1.i.1","8.12.0.w.1">,<"8.24.1.j.1","8.12.0.x.1">,<"8.24.1.k.1","8.12.0.w.1">,<"8.24.1.p.1","8.12.0.z.1">,<"8.24.1.q.1","8.12.0.q.1">,<"8.24.1.v.1","8.12.0.t.1">,<"8.24.1.z.1","8.12.0.t.1">,<"8.32.1.a.1","8.16.0.a.1">,<"8.32.1.b.1","8.16.0.a.1">,<"8.32.1.c.1","8.16.0.a.1">,<"8.32.1.d.1","8.16.0.a.1">,<"8.48.1.a.1","8.24.0.bs.1">,<"8.48.1.b.1","8.24.0.be.1">,<"8.48.1.ba.1","8.24.0.t.1">,<"8.48.1.bd.1","8.24.0.s.1">,<"8.48.1.be.1","8.24.0.s.1">,<"8.48.1.bf.1","8.24.0.bj.1">,<"8.48.1.bg.1","8.24.0.s.1">,<"8.48.1.bh.1","8.24.0.bl.1">,
+<"8.48.1.bh.2","8.24.0.bl.2">,<"8.48.1.bj.1","8.24.0.bl.1">,<"8.48.1.bk.1","8.24.0.bn.1">,<"8.48.1.bl.1","8.24.0.t.1">,
+<"8.48.1.bm.1","8.24.0.bs.1">,<"8.48.1.bo.1","8.24.0.z.1">,<"8.48.1.bq.1","8.24.0.z.1">,<"8.48.1.br.1","8.24.0.z.1">,<"8.48.1.bt.1","8.24.0.bs.1">,<"8.48.1.bu.1","8.24.0.bt.1">,<"8.48.1.d.1","8.24.0.bi.1">,<"8.48.1.e.1","8.24.0.d.2">,<"8.48.1.e.2","8.24.0.d.1">,<"8.48.1.f.1","8.24.0.f.1">,<"8.48.1.j.1","8.24.0.c.1">,<"8.48.1.l.1","8.24.0.d.1">,<"8.48.1.o.1","8.24.0.g.1">,<"8.48.1.q.1","8.24.0.bc.1">,<"8.48.1.r.1","8.24.0.n.1">,<"8.48.1.s.1","8.24.0.bl.1">,<"8.48.1.s.2","8.24.0.bl.2">,<"8.48.1.u.1","8.24.0.n.1">,<"8.48.1.v.1","8.24.0.m.1">,<"8.48.1.w.1","8.24.0.n.1">,
+<"8.48.1.x.1","8.24.0.m.1">,<"8.48.1.y.1","8.24.0.n.1">,<"8.48.1.z.1","8.24.0.bh.1">,<"8.96.1.a.1","8.48.0.b.1">,<"8.96.1.a.2","8.48.0.b.2">,<"8.96.1.b.1","8.48.0.b.2">,<"8.96.1.b.2","8.48.0.b.1">,<"8.96.1.c.1","8.48.0.e.1">,<"8.96.1.c.2","8.48.0.e.2">,<"8.96.1.e.1","8.48.0.b.2">,<"8.96.1.f.1","8.48.0.h.1">,<"8.96.1.h.1","8.48.0.f.1">,<"8.96.1.h.2","8.48.0.f.1">,<"8.96.1.i.1","8.48.0.e.1">,<"8.96.1.i.2","8.48.0.e.2">,<"8.96.1.j.2","8.48.0.e.2">,<"8.96.1.k.1","8.48.0.q.2">,<"8.96.1.l.2","8.48.0.n.2">,<"8.96.1.n.1","8.48.0.q.2">,<"16.48.1.bb.1","8.24.0.bp.1">,
+<"16.48.1.bc.1","8.24.0.bs.1">,<"16.48.1.be.1","8.24.0.bs.1">,<"16.48.1.bh.1","16.24.0.k.2">,<"16.48.1.bi.1","16.24.0.l.1">,<"16.48.1.bj.1","16.24.0.l.2">,<"16.48.1.bk.1","8.24.0.bi.1">,<"16.48.1.bw.1","16.24.0.k.1">,<"16.48.1.bx.1","16.24.0.l.2">,<"16.48.1.by.1","16.24.0.l.1">,<"16.48.1.bz.1","8.24.0.bq.1">,<"16.48.1.c.1","16.24.0.i.1">,<"16.48.1.cb.1","8.24.0.bp.1">,<"16.48.1.ce.1","8.24.0.bs.1">,<"16.48.1.ci.1","16.24.0.o.2">,<"16.48.1.ci.2","16.24.0.o.1">,<"16.48.1.ck.1","16.24.0.o.1">,<"16.48.1.ck.2","16.24.0.o.2">,<"16.48.1.cm.1","16.24.0.p.2">,<"16.48.1.cq.1","16.24.0.p.1">,<"16.48.1.cu.1","16.24.0.o.1">,<"16.48.1.cu.2","16.24.0.o.2">,<"16.48.1.cw.1","16.24.0.o.2">,<"16.48.1.cw.2","16.24.0.o.1">,<"16.48.1.cy.1","16.24.0.p.2">,<"16.48.1.cz.1","16.24.0.p.1">,<"16.48.1.da.1","16.24.0.p.1">,<"16.48.1.dd.1","16.24.0.p.2">,<"16.48.1.e.1","16.24.0.j.1">,<"16.48.1.f.1","16.24.0.h.1">,<"16.48.1.j.1","16.24.0.h.1">,
+<"16.48.1.m.1","16.24.0.j.1">,<"16.48.1.n.1","16.24.0.i.1">,<"16.48.1.o.1","16.24.0.i.1">,<"16.48.1.s.1","8.24.0.ba.1">,<"16.48.1.s.2","8.24.0.ba.2">,<"16.48.1.w.1","8.24.0.ba.1">,<"16.48.1.w.2","16.24.0.f.2">,<"16.48.1.z.1","8.24.0.bp.1">,<"16.96.1.a.1","16.48.0.d.1">,<"16.96.1.a.2","16.48.0.y.2">,
+<"16.96.1.c.1","16.48.0.d.2">,<"16.96.1.d.1","16.48.0.d.2">,<"16.96.1.d.2","16.48.0.d.1">,<"16.96.1.e.1","16.48.0.d.2">,<"16.96.1.g.2","16.48.0.u.2">,<"16.96.1.h.1","16.48.0.x.2">,<"16.96.1.h.2","16.48.0.x.1">,<"16.96.1.i.1","16.48.0.y.2">,<"16.96.1.i.2","8.48.0.m.2">,<"16.96.1.j.1","16.48.0.bb.1">,
+<"16.96.1.j.2","16.48.0.bb.2">,<"16.96.1.l.1","16.48.0.j.1">,<"16.96.1.n.1","8.48.0.n.1">,<"16.96.1.n.2","8.48.0.n.2">,<"16.96.1.o.1","8.48.0.n.2">,<"16.96.1.o.2","8.48.0.n.1">,<"16.96.1.p.1","16.48.0.u.1">,<"16.96.1.p.2","16.48.0.u.2">,<"16.96.1.q.2","8.48.0.p.1">,<"16.96.1.r.1","16.48.0.y.1">,
+<"16.96.1.r.2","16.48.0.y.2">,<"16.96.1.s.1","8.48.0.p.1">,<"16.96.1.s.2","8.48.0.p.1">,<"32.96.1.b.2","16.48.0.v.2">,<"32.96.1.c.1","32.48.0.e.2">,
+<"32.96.1.c.2","32.48.0.e.1">,<"32.96.1.e.2","32.48.0.e.1">,<"32.96.1.g.1","32.48.0.e.1">,<"32.96.1.g.2","32.48.0.e.2">,<"32.96.1.h.2","32.48.0.e.1">];
+
+
+/* verifying that first entry is an index 2 subgroup of second entry, hence there is a degree 2 map between them*/
+
+for tuple in possdeg2map do;
+
+level1:=StringToInteger(Split(tuple[1],".")[1]);
+GL21:=GL(2,Integers(level1));
+G1:=sub<GL21|Genus1LMFDBlist[tuple[1]]`gens>;
+
+
+level2:=StringToInteger(Split(tuple[2],".")[1]);
+GL22:=GL(2,Integers(level2));
+G2:=sub<GL22|Genus0LMFDBlist[tuple[2]]`gens>;
+
+pi:=hom<GL21->GL22|[GL22!GL21.i:i in [1..#Generators(GL21)]]>;
+G2red:=G2@@pi;
+m:=Integers()!(Order(G2red)/2);
+bool:=[];
+        for H in Subgroups(G2red:OrderEqual:=m) do;
+        
+        b,_:=IsConjugate(GL21,H`subgroup,G1);
+        bool:=bool cat [b];
+        
+        end for;
+assert true in bool;
+
+end for;
+
+/* verifying that the modular curve corresponding to the second entry is indeed P^1*/
+
+// The following functions are taken directly from https://math.mit.edu/~drew/SZ16/GL2Invariants.m
+
+// Given a subgroup H of GL(2,Z/nZ), computes the index of det(H) in (Z/nZ)*
+function GL2DetIndex(H)
+    M,pi:=MultiplicativeGroup(BaseRing(H));
+    return Index(M,sub<M|[Inverse(pi)(Determinant(h)):h in Generators(H)]>);
+end function;
+
+// Compute the abelian group invariants of a Z/nZ-submodule of Z/nZ x Z/nZ (which Magma apparently doesn't now is an abelian group)
+function GL2ModuleInvariants(V)
+    if Dimension(V) eq 0 then return []; end if;
+    if Dimension(V) eq 1 then return [#V]; end if;
+    assert Dimension(V) le 2;
+    r1:=#sub<V|V.1>;  r2:=#sub<V|V.2>;
+    return [GCD(r1,r2),LCM(r1,r2)];
+end function;
+
+// Given invariants A and B of two Z/nZ-submodules of Z/nZ x Z/nZ, return true if A is isomorphic to a submodule of B
+function GL2IsSubModule(A,B)
+    i:=#B-#A;
+    if i lt 0 then return false; end if;
+    for j in [1..#A] do if not IsDivisibleBy(B[i+j],A[j]) then return false; end if; end for;
+    return true;
+end function;
+
+function GL2FixModule(H)
+    V := Eigenspace(Identity(H),1);
+    for h in Generators(H) do V:= V meet Eigenspace(Transpose(h),1); end for;   // take transpose so that we  are using left actions (Magma default is right action!)
+    return GL2ModuleInvariants(V);
+end function;
+
+// Given a subgroup H of GL(2,Z/nZ), returns true if H contains an element corresponding to complex conjugation
+// This is tested by checking det = -1, tr = 0, and fixing a maximal cyclic subgroup (note: this is faster than checking for an element conjugate to [1,0,0,-1] or [1,1,0,-1])
+function GL2ContainsCC(H)
+    return #[h:h in H|Determinant(h) eq -1 and Trace(h) eq 0 and GL2IsSubModule([#BaseRing(H)],GL2FixModule(sub<H|h>))] gt 0;
+end function;
+
+for tuple in possdeg2map do;
+
+level2:=StringToInteger(Split(tuple[2],".")[1]);
+GL22:=GL(2,Integers(level2));
+G2:=sub<GL22|Genus0LMFDBlist[tuple[2]]`gens>;
+assert GL2ContainsCC(G2);
+
+end for;
+
+/*degree 2 map to P^1:={"7.42.1.a.1", "8.24.1.bc.1", "8.24.1.e.1", "8.24.1.g.1", "8.24.1.h.1", "8.24.1.i.1", "8.24.1.j.1", "8.24.1.k.1", "8.24.1.p.1", "8.24.1.q.1", "8.24.1.v.1", "8.24.1.z.1", 
                       "8.32.1.a.1", "8.32.1.b.1", "8.32.1.c.1", "8.32.1.d.1", "8.48.1.a.1", "8.48.1.b.1", "8.48.1.ba.1", "8.48.1.bd.1", "8.48.1.be.1", "8.48.1.bf.1", "8.48.1.bg.1", "8.48.1.bh.1",
                       "8.48.1.bh.2", "8.48.1.bj.1", "8.48.1.bk.1", "8.48.1.bl.1", "8.48.1.bm.1", "8.48.1.bo.1", "8.48.1.bq.1", "8.48.1.br.1", "32.96.1.g.2", "32.96.1.h.2", "32.96.1.g.1",      
                       "8.48.1.bt.1", "8.48.1.bu.1", "8.48.1.d.1", "8.48.1.e.1", "8.48.1.e.2", "8.48.1.f.1", "8.48.1.j.1", "8.48.1.l.1", "8.48.1.o.1", "8.48.1.q.1", "8.48.1.r.1", "8.48.1.s.1",
@@ -276,9 +364,11 @@ degree 2 map to P^1:={"7.42.1.a.1", "8.24.1.bc.1", "8.24.1.e.1", "8.24.1.g.1", "
                       "16.48.1.ci.1", "16.48.1.ci.2", "16.48.1.ck.1", "16.48.1.ck.2", "16.48.1.cm.1", "16.48.1.cq.1", "16.48.1.cu.1", "16.48.1.cu.2", "16.48.1.cw.1", "16.48.1.cw.2", "16.48.1.cy.1",
                       "16.48.1.cz.1", "16.48.1.da.1", "16.48.1.dd.1", "16.48.1.e.1", "16.48.1.f.1", "16.48.1.j.1", "16.48.1.m.1", "16.48.1.n.1", "16.48.1.o.1", "16.48.1.s.1", "16.48.1.s.2",
                       "16.48.1.w.1", "16.48.1.w.2", "16.48.1.z.1", "16.96.1.a.1", "16.96.1.a.2", "16.96.1.c.1", "16.96.1.d.1", "16.96.1.d.2", "16.96.1.e.1", "16.96.1.g.2", "16.96.1.h.1", "16.96.1.h.2",
-                      "16.96.1.i.1", "16.96.1.i.2", "16.96.1.j.1", "16.96.1.j.2", "16.96.1.l.1", "16.96.1.n.1", "16.96.1.n.2", "16.96.1.o.1", "16.96.1.o.2", "16.96.1.p.1", "16.96.1.p.2"}     
+                      "16.96.1.i.1", "16.96.1.i.2", "16.96.1.j.1", "16.96.1.j.2", "16.96.1.l.1", "16.96.1.n.1", "16.96.1.n.2", "16.96.1.o.1", "16.96.1.o.2", "16.96.1.p.1", "16.96.1.p.2"}
 
-remaining :={ "8.48.1.bi.1", "9.81.1.a.1", "16.96.1.t.1", "16.48.1.l.1", "16.64.1.a.1", "16.64.1.b.1", "16.96.1.k.1"} 
+remaining :={ "8.48.1.bi.1", "9.81.1.a.1", "16.96.1.t.1", "16.48.1.l.1", "16.64.1.a.1", "16.64.1.b.1", "16.96.1.k.1"} */
+
+// We now provide the supporting code for remaining cases.
 
 // 9.81.1.a.1
 /* We show that it has no Q_3 points. */
@@ -333,74 +423,80 @@ function PointsViaLifting(psi,p,m)
     return S;
 end function;
 
-P<x,y,z>:=PolynomialRing(Integers(),3);
-Model:=[x^3 - 6*x^2*y + 3*x^2*z + 6*x*y*z - 6*x*z^2 - y^3 - 6*y*z^2 + z^3];
-PointsViaLifting(Model,3,3);//empty
+GL2:=GL(2,Integers(9));
+G:=sub<GL2|Genus1LMFDBlist["9.81.1.a.1"]`gens>;
+
+X:=CreateModularCurveRec(G);
+XG:=FindModelOfXG(X);
+Model:=XG`psi;
+assert #PointsViaLifting(Model,3,3) eq 0;
 
 // "16.96.1.t.1" 
-P<x,y,z,w> := PolynomialRing(Rationals(),4);
-C := Curve(ProjectiveSpace(P),[-2*x*w + y^2 + 2*y*z - z^2, x^2 - 2*y^2 - 2*z^2 - 2*w^2]);
+
+GL2:=GL(2,Integers(16));
+G:=sub<GL2|Genus1LMFDBlist["16.96.1.t.1" ]`gens>;
+
+X:=CreateModularCurveRec(G);
+XG:=FindModelOfXG(X);
+C := Curve(ProjectiveSpace(Rationals(), Rank(Parent((XG`psi)[1]))-1),XG`psi);
 c := GenusOneModel(C);
 c2 := DoubleGenusOneModel(c);
-P<t> := PolynomialRing(Rationals());
-c2;
-f:=4*t^4 - 32;
-g:=-4*t^2;
-H := HyperellipticCurve(f,g);H;
-
-IsLocallySolvable(H,2); // false
+IsLocallySolvable(c2,2); // false
 
 //"16.64.1.a.1"
-P<x,y,z,w> := PolynomialRing(Rationals(),4);
-C := Curve(ProjectiveSpace(P),[-2*x*w + 2*y^2 - z^2, x^2 - 4*x*w + 4*y*z + 4*z^2 + 2*w^2]);
+GL2:=GL(2,Integers(16));
+G:=sub<GL2|Genus1LMFDBlist["16.64.1.a.1" ]`gens>;
+
+X:=CreateModularCurveRec(G);
+XG:=FindModelOfXG(X);
+C := Curve(ProjectiveSpace(Rationals(), Rank(Parent((XG`psi)[1]))-1),XG`psi);
 c := GenusOneModel(C);
 c2 := DoubleGenusOneModel(c);
-P<t> := PolynomialRing(Rationals());
-c2;
-f:=8*t^4 - 112*t^2 - 64*t - 32;
-g:=(-8*t - 16);
-H := HyperellipticCurve(f,g);H;
-
-IsLocallySolvable(H,2); //false
+IsLocallySolvable(c2,2); //false
 
 //"16.64.1.b.1"
-P<x,y,z,w> := PolynomialRing(Rationals(),4);
-C := Curve(ProjectiveSpace(P),[2*x*w + 2*y^2 - z^2, x^2 - 4*x*w - 4*y*z - 4*z^2 + 2*w^2]);
+GL2:=GL(2,Integers(16));
+G:=sub<GL2|Genus1LMFDBlist["16.64.1.b.1" ]`gens>;
+
+X:=CreateModularCurveRec(G);
+XG:=FindModelOfXG(X);
+C := Curve(ProjectiveSpace(Rationals(), Rank(Parent((XG`psi)[1]))-1),XG`psi);
 c := GenusOneModel(C);
 c2 := DoubleGenusOneModel(c);
-P<t> := PolynomialRing(Rationals());
-c2;
-f:=8*t^4 - 112*t^2 + 64*t - 32;
-g:=(-8*t + 16);
-H := HyperellipticCurve(f,g);H;
-
-IsLocallySolvable(H,2);//false
+IsLocallySolvable(c2,2);//false
 
 //"16.96.1.k.1"
 
-P<x,y,z,w> := PolynomialRing(Rationals(),4);
-C := Curve(ProjectiveSpace(P),[2*x*w + y^2 + 2*y*z - z^2, x^2 + 2*y^2 + 2*z^2 - 2*w^2]);
+GL2:=GL(2,Integers(16));
+G:=sub<GL2|Genus1LMFDBlist["16.96.1.k.1"]`gens>;
+
+X:=CreateModularCurveRec(G);
+XG:=FindModelOfXG(X);
+C := Curve(ProjectiveSpace(Rationals(), Rank(Parent((XG`psi)[1]))-1),XG`psi);
 c := GenusOneModel(C);
 c2 := DoubleGenusOneModel(c);
-P<t> := PolynomialRing(Rationals());
-c2;
-f:=4*t^4 - 32;
-g:=4*t^2;
-H := HyperellipticCurve(f,g);H;
-IsLocallySolvable(H,2);//false
-
+IsLocallySolvable(c2,2);//false
 
 // 8.48.1.bi.1
 
-P<x,y,z,w> := PolynomialRing(Rationals(),4);
-C := Curve(ProjectiveSpace(P),[2*x^2 + 3*x*y + y*z - z^2 + w^2, 4*x^2 - 2*x*y + y^2 - 2*y*z + 2*z^2]);
+GL2:=GL(2,Integers(8));
+G:=sub<GL2|Genus1LMFDBlist["8.48.1.bi.1"]`gens>;
+
+X:=CreateModularCurveRec(G);
+XG:=FindModelOfXG(X);
+C := Curve(ProjectiveSpace(Rationals(), Rank(Parent((XG`psi)[1]))-1),XG`psi);
 c := GenusOneModel(C);
-c2 := DoubleGenusOneModel(c);
-P<t> := PolynomialRing(Rationals());
-c2;
-f:=7*t^4 - 34*t^3 + 36*t^2 + 8*t;
-H := HyperellipticCurve(f);H;
-RationalPoints(H:Bound:=100);
+c2 := DoubleGenusOneModel(c);c2;
+P<t>:=PolynomialRing(Rationals());
+f:=4*t^3 + 48*t^2 + 16*t;
+RationalPoints(HyperellipticCurve(f):Bound:=100);
+
+/*false
+false
+false
+false
+Genus one model of degree 2 defined by y^2 = 4*x^3*z + 48*x^2*z^2 + 16*x*z^3 over Rational Field
+{@ (1 : 0 : 0), (0 : 0 : 1), (2 : -16 : 1), (2 : 16 : 1) @}*/
 
 
 
