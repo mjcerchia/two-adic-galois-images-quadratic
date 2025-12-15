@@ -15,7 +15,7 @@ gonality_equals_2:=[ "8B3", "10B3", "12C3", "12D3", "12E3", "12F3", "12G3", "12H
     "58A5", "59A5", "60A5", "96A5", "48A6", "71A6", "32E7", "48N7", "56B7", "64D7", "82B7", 
     "96A7", "93A8", "50A9", "50D9", "96B9", "48B11", "72A11", "96B11"];
 /* The files pre.m, csg.m and csg24.dat are taken from Cummins-Pauli database of congruence subgroups available at
-https://math-sites.uncg.edu/sites/pauli/congruence/  */
+https://math-sites.uncg.edu/sites/pauli/congruence/ and does not contain genus 2 congruence subgroups.*/
 
 load ".../pre.m"; //Please modify these according to the local directory.
 load ".../csg.m"; 
