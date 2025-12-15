@@ -521,7 +521,7 @@ possdeg2map:=[<"7.42.1.a.1","7.21.0.a.1">,<"8.24.1.bc.1","8.12.0.u.1">,<"8.24.1.
 <"32.96.1.c.2","32.48.0.e.1">,<"32.96.1.e.2","32.48.0.e.1">,<"32.96.1.g.1","32.48.0.e.1">,<"32.96.1.g.2","32.48.0.e.2">,<"32.96.1.h.2","32.48.0.e.1">];
 
 
-/* verifying that first entry is an index 2 subgroup of second entry, hence there is a degree 2 map between them*/
+/* verifying that first entry in possdeg2map is an index 2 subgroup of second entry, hence there is a degree 2 map between them*/
 
 for tuple in possdeg2map do;
 
@@ -548,7 +548,7 @@ assert true in bool;
 
 end for;
 
-/* verifying that the modular curve corresponding to the second entry is indeed P^1*/
+/* verifying that the modular curve corresponding to the second entry in possdeg2map is indeed P^1*/
 
 // The following functions are taken directly from https://math.mit.edu/~drew/SZ16/GL2Invariants.m
 
