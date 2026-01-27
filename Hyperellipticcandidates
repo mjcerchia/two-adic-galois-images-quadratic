@@ -1,3 +1,4 @@
+//The following set is taken from Zywina's "Classification of low gonality modular curves" paper.
 
 
 gonality2:=
@@ -65,15 +66,18 @@ end for;
 HypCand[label]:=S;
 end for;
 
-// This loop produces LMFDB labels of modular curves corresponding to CP labels
+// This loop produces LMFDB labels of modular curves of prime power levels of genus bigger than or equal to 2 coming from corresponding CP labels.
 
 for k in Keys(HypCand) do;
 k;HypCand[k];
 print "..........";
 end for;
 
+/*
 
-/* Output
+***************************************************************************************************************
+
+
 
 // This file contains the LMFDB labels for candidates for hyperelliptic modular curves of prime power level.
 
@@ -223,7 +227,132 @@ Groups that come from "32E7" = {"32.96.7.a.1", "32.96.7.g.1", "32.96.7.r.1", "32
 Groups that come from "64D7" = {"64.96.7.g.1", "64.96.7.g.2", "64.96.7.h.1", "64.96.7.h.2"} */
 
 
+//**************************************************************************************************************************************
 
+load "LMFDB data on genus 2-11.m";
+AttachSpec("2025-12-14-archive-1/Zywina_number fields/Modular-main (2)/Modular-main/Modular.spec"); //Please change it according to local directory
+
+remaining:={};
+for k in Keys(HypCand) do;
+   if #HypCand[k] eq 0 then continue; end if;
+   for label in HypCand[k] do;
+      
+      if label in {"32.96.7.r.1","32.96.7.s.1","71.72.6.a.1","47.48.4.a.1","59.60.5.a.1"} then continue; end if;
+      for tuple in data211 do;
+          if label eq tuple[1] then
+                      level:=Split(tuple[1],".")[1];
+                      level:=StringToInteger(level);
+                      GL2:=GL(2,Integers(level));
+                      G:=sub<GL2|tuple[4]>;
+                      Gt:=sub<GL2|[Transpose(GL2!g):g in Generators(G)]>;
+                      X:=CreateModularCurveRec(Gt);
+                      XG:=FindModelOfXG(X);
+                      C := Curve(ProjectiveSpace(Rationals(), Rank(Parent((XG`psi)[1]))-1),XG`psi);
+                      if IsHyperelliptic(C) then continue; 
+                      else remaining:=remaining join {label};end if;
+                      
+          end if;
+      end for;
+   end for;
+   
+ end for;
+
+// "32.96.7.r.1","32.96.7.s.1" we take their weierstrass models from LMFDB
+// "71.72.6.a.1","47.48.4.a.1","59.60.5.a.1" (X_0(71), X_0(47) and X_0(59) we know from literature already that they are hyperelliptic)
+
+#remaining; // 53
+
+ptlessgenus0quo:=[<"8.96.3.c.1","8.48.0.a.1">,<"8.96.3.d.1","8.48.0.a.1">,<"16.96.3.cz.1","16.48.0.o.1">,<"16.96.3.dc.1","16.48.0.o.1">,<"16.96.3.dj.1","16.48.0.o.1">,<"16.96.3.dm.1","16.48.0.o.1">,<"16.96.3.f.1","16.48.0.b.1">,<"16.96.3.g.1","16.48.0.b.1">,<"16.96.3.j.1","16.48.0.b.1">,<"16.96.3.k.1","16.48.0.b.1">,<"16.48.3.bl.1","8.24.0.bg.1">,<"16.48.3.bp.1","8.24.0.bg.1">,<"16.48.3.by.1","8.24.0.br.1">,<"16.48.3.cc.1","8.24.0.br.1">,<"16.48.3.bh.1","8.24.0.bk.2">,<"16.48.3.bh.2","8.24.0.bk.1">,<"16.48.3.bj.1","8.24.0.bk.2">,<"16.48.3.bj.2","8.24.0.bk.1">,<"16.48.3.bt.1","8.24.0.bk.2">,<"16.48.3.bt.2","8.24.0.bk.1">,<"16.48.3.bv.1","8.24.0.bk.2">,<"16.48.3.bv.2","8.24.0.bk.1">,<"16.96.3.be.1","16.48.0.g.1">,<"16.96.3.bf.1","16.48.0.g.1">,<"16.96.3.bo.1","16.48.0.g.1">,<"16.96.3.bp.1","16.48.0.g.1">,<"16.96.3.by.1","16.48.0.p.1">,<"16.96.3.bz.1","16.48.0.p.1">,<"16.96.3.cu.1","16.48.0.k.1">,<"16.96.3.cv.1","16.48.0.k.1">,<"16.96.3.dn.1","16.48.0.p.1">,<"16.96.3.do.1","16.48.0.p.1">,<"16.96.3.cd.1","16.48.0.s.1">,<"16.96.3.ch.1","16.48.0.s.1">,<"16.96.3.ds.1","16.48.0.s.1">,<"16.96.3.dw.1","16.48.0.s.1">,<"16.96.3.o.1","8.48.0.j.2">,<"16.96.3.o.2","8.48.0.j.1">,<"16.96.3.x.1","8.48.0.j.2">,<"16.96.3.x.2","8.48.0.j.1">,<"32.96.3.t.1","16.48.0.w.1">,<"32.96.3.t.2","16.48.0.w.2">,<"32.96.3.x.1","16.48.0.w.1">,<"32.96.3.x.2","16.48.0.w.2">];
+
+#ptlessgenus0quo; //44
+
+load "Genus 0 data.m";
+
+Genus0LMFDBSubgroup := recformat<label:MonStgElt, gens:SeqEnum, H:GrpMat>;
+Genus0LMFDBlist:=AssociativeArray();
+
+for r in data0 do
+    Genus0LMFDBlist[r[1]]:= rec<Genus0LMFDBSubgroup  | label:=r[1], gens:=r[3]>;
+end for;
+
+
+/* verifying that first entry in ptlessgenus0quo is an index 2 subgroup of second entry, hence there is a degree 2 map between them*/
+
+for tuple in ptlessgenus0quo do;
+
+level1:=StringToInteger(Split(tuple[1],".")[1]);
+GL21:=GL(2,Integers(level1));
+for x in data211 do;
+if x[1] eq tuple[1] then
+G1:=sub<GL21|x[4]>;
+end if;
+end for;
+
+level2:=StringToInteger(Split(tuple[2],".")[1]);
+GL22:=GL(2,Integers(level2));
+G2:=sub<GL22|Genus0LMFDBlist[tuple[2]]`gens>;
+
+pi:=hom<GL21->GL22|[GL22!GL21.i:i in [1..#Generators(GL21)]]>;
+G2red:=G2@@pi;
+m:=Integers()!(Order(G2red)/2);
+bool:=[];
+        for H in Subgroups(G2red:OrderEqual:=m) do;
+        
+        b,_:=IsConjugate(GL21,H`subgroup,G1);
+        bool:=bool cat [b];
+        
+        end for;
+assert true in bool;
+
+end for;
+
+/* verifying that the modular curve corresponding to the second entry in possdeg2map is a pointless conic*/
+
+// The following functions are taken directly from https://math.mit.edu/~drew/SZ16/GL2Invariants.m
+
+// Given a subgroup H of GL(2,Z/nZ), computes the index of det(H) in (Z/nZ)*
+function GL2DetIndex(H)
+    M,pi:=MultiplicativeGroup(BaseRing(H));
+    return Index(M,sub<M|[Inverse(pi)(Determinant(h)):h in Generators(H)]>);
+end function;
+
+// Compute the abelian group invariants of a Z/nZ-submodule of Z/nZ x Z/nZ (which Magma apparently doesn't now is an abelian group)
+function GL2ModuleInvariants(V)
+    if Dimension(V) eq 0 then return []; end if;
+    if Dimension(V) eq 1 then return [#V]; end if;
+    assert Dimension(V) le 2;
+    r1:=#sub<V|V.1>;  r2:=#sub<V|V.2>;
+    return [GCD(r1,r2),LCM(r1,r2)];
+end function;
+
+// Given invariants A and B of two Z/nZ-submodules of Z/nZ x Z/nZ, return true if A is isomorphic to a submodule of B
+function GL2IsSubModule(A,B)
+    i:=#B-#A;
+    if i lt 0 then return false; end if;
+    for j in [1..#A] do if not IsDivisibleBy(B[i+j],A[j]) then return false; end if; end for;
+    return true;
+end function;
+
+function GL2FixModule(H)
+    V := Eigenspace(Identity(H),1);
+    for h in Generators(H) do V:= V meet Eigenspace(Transpose(h),1); end for;   // take transpose so that we  are using left actions (Magma default is right action!)
+    return GL2ModuleInvariants(V);
+end function;
+
+// Given a subgroup H of GL(2,Z/nZ), returns true if H contains an element corresponding to complex conjugation
+// This is tested by checking det = -1, tr = 0, and fixing a maximal cyclic subgroup (note: this is faster than checking for an element conjugate to [1,0,0,-1] or [1,1,0,-1])
+function GL2ContainsCC(H)
+    return #[h:h in H|Determinant(h) eq -1 and Trace(h) eq 0 and GL2IsSubModule([#BaseRing(H)],GL2FixModule(sub<H|h>))] gt 0;
+end function;
+
+for tuple in ptlessgenus0quo do;
+
+level2:=StringToInteger(Split(tuple[2],".")[1]);
+GL22:=GL(2,Integers(level2));
+G2:=sub<GL22|Genus0LMFDBlist[tuple[2]]`gens>;
+assert GL2ContainsCC(G2) eq false;
+
+end for;
 
 
 
