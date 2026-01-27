@@ -1,5 +1,7 @@
 //The following set is taken from Zywina's "Classification of low gonality modular curves" paper.
 
+// Every genus 2 congruence subgroup is geometrically hyperelliptic so we have not included them in this list.
+
 gonality_equals_2:=[ "8B3", "10B3", "12C3", "12D3", "12E3", "12F3", "12G3", "12H3", "12K3", 
     "12L3", "14A3", "14C3", "14F3", "15F3", "15G3", "16B3", "16C3", "16D3", "16E3", "16F3", 
     "16I3", "16J3", "16M3", "16S3", "18A3", "18C3", "18F3", "18G3", "20C3", "20F3", "20G3", 
