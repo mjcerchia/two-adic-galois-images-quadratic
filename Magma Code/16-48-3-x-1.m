@@ -9,26 +9,7 @@ which we find to be rank 1.
 P<x,y,z> := ProjectiveSpace(Rationals(),2);
 C := Curve(P,[2*x^3*y + x^3*z + 3*x^2*y*z + 2*x*y^3 + 3*x*y^2*z - 2*x*z^3 + y^3*z - 2*y*z^3 - z^4]);
 
-/****************Optional code to verify that handcoded equations taken from LMFDB match with that obtained from Zywina's code
 
-for tuple in data211 do;
-          if tuple[1] eq "16.48.3.x.1" then
-                      level:=Split(tuple[1],".")[1];
-                      level:=StringToInteger(level);
-                      GL2:=GL(2,Integers(level));
-                      G:=sub<GL2|tuple[4]>;
-                      Gt:=sub<GL2|[Transpose(GL2!g):g in Generators(G)]>;
-                      X:=CreateModularCurveRec(Gt);
-                      XG:=FindModelOfXG(X);
-                      D := Curve(ProjectiveSpace(Rationals(), Rank(Parent((XG`psi)[1]))-1),XG`psi);
-           end if;
-end for;
-
-P<x,y,z> := ProjectiveSpace(Rationals(),2);
-C := Curve(P,[2*x^3*y + x^3*z + 3*x^2*y*z + 2*x*y^3 + 3*x*y^2*z - 2*x*z^3 + y^3*z - 2*y*z^3 - z^4]);
-
-assert IsIsomorphic(C,D);
-****************************************************************/
 S := AutomorphismGroup(C); 
 auts := [];
 Stemp := Automorphisms(C);
