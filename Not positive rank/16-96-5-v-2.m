@@ -10,7 +10,27 @@ NOT bielliptic.
 P<x,y,z,w,t> := ProjectiveSpace(Rationals(),4);
 C := Curve(P,[2*y^2 - w^2 + w*t, 2*z^2 - w*t - t^2, 2*x^2 + y*z]);
 
+/*****************************Optional code to verify that model taken from LMFDB matches with that obtained from Zywina's code
+for tuple in data211 do;
+          if tuple[1] eq "16.96.5.v.2" then
+                      level:=Split(tuple[1],".")[1];
+                      level:=StringToInteger(level);
+                      GL2:=GL(2,Integers(level));
+                      G:=sub<GL2|tuple[4]>;
+                      Gt:=sub<GL2|[Transpose(GL2!g):g in Generators(G)]>;
+                      IsConjugate(GL2,G,Gt);//false
+                      X:=CreateModularCurveRec(Gt);
+                      XG:=FindModelOfXG(X);
+                      D := Curve(ProjectiveSpace(Rationals(), Rank(Parent((XG`psi)[1]))-1),XG`psi);
+           end if;
+end for;
 
+P<x,y,z,w,t> := ProjectiveSpace(Rationals(),4);
+C := Curve(P,[2*y^2 - w^2 + w*t, 2*z^2 - w*t - t^2, 2*x^2 + y*z]);
+
+assert IsIsomorphic(C,D);
+
+*********************************************************************/
 
 G:=AutomorphismGroup(C);
 S:=Automorphisms(C);
