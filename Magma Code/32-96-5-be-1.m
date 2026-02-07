@@ -8,6 +8,28 @@ which we find to be rank 1.
 ******************************************************************************/
 P<x,y,z,w,t> := ProjectiveSpace(Rationals(),4);
 C := Curve(P,[y*w + z*t, 2*x^2 + y*w + y*t - z*t, y^2 + 4*y*z - 4*z^2 + w^2 + w*t]);
+
+/************************************Optional code to verify that model matches with Zywina's repo**************
+
+for tuple in data211 do;
+          if tuple[1] eq "32.96.5.be.1" then
+                      level:=Split(tuple[1],".")[1];
+                      level:=StringToInteger(level);
+                      GL2:=GL(2,Integers(level));
+                      G:=sub<GL2|tuple[4]>;
+                      Gt:=sub<GL2|[Transpose(GL2!g):g in Generators(G)]>;
+                      IsConjugate(GL2,G,Gt);//false
+                      X:=CreateModularCurveRec(Gt);
+                      XG:=FindModelOfXG(X);
+                      D := Curve(ProjectiveSpace(Rationals(), Rank(Parent((XG`psi)[1]))-1),XG`psi);
+           end if;
+end for;
+
+P<x,y,z,w,t> := ProjectiveSpace(Rationals(),4);
+C := Curve(P,[y*w + z*t, 2*x^2 + y*w + y*t - z*t, y^2 + 4*y*z - 4*z^2 + w^2 + w*t]);
+assert IsIsomorphic(C,D);
+
+*******************************************************************************/
 pt:=PointSearch(C,1000)[1];
 S := AutomorphismGroup(C); 
 auts := [];
