@@ -8,6 +8,28 @@ NOT bielliptic.
 ******************************************************************************/
 P<x,y,z,w>:=ProjectiveSpace(Rationals(),3);
 C := Curve(P,[x^2 - x*z - x*w - y*z + z^2 + z*w, x^3 - x^2*y + x*y^2 - x*z*w - y^2*z - y^2*w + 2*y*w^2 + z^2*w - w^3]);
+
+/*****************************Optional code to verify that model taken from LMFDB matches with that obtained from Zywina's code
+for tuple in data211 do;
+          if tuple[1] eq "37.114.4.b.1" then
+                      level:=Split(tuple[1],".")[1];
+                      level:=StringToInteger(level);
+                      GL2:=GL(2,Integers(level));
+                      G:=sub<GL2|tuple[4]>;
+                      Gt:=sub<GL2|[Transpose(GL2!g):g in Generators(G)]>;
+                      IsConjugate(GL2,G,Gt);//false
+                      X:=CreateModularCurveRec(Gt);
+                      XG:=FindModelOfXG(X);
+                      D := Curve(ProjectiveSpace(Rationals(), Rank(Parent((XG`psi)[1]))-1),XG`psi);
+           end if;
+end for;
+
+P<x,y,z,w>:=ProjectiveSpace(Rationals(),3);
+C := Curve(P,[x^2 - x*z - x*w - y*z + z^2 + z*w, x^3 - x^2*y + x*y^2 - x*z*w - y^2*z - y^2*w + 2*y*w^2 + z^2*w - w^3]);
+
+assert IsIsomorphic(C,D);
+
+*************************************************************************/
 C5 := Curve(Reduction(C,5)); 
 S := AutomorphismGroup(C5); 
 
