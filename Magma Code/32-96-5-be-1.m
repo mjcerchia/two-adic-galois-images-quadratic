@@ -9,7 +9,7 @@ which we find to be rank 1.
 P<x,y,z,w,t> := ProjectiveSpace(Rationals(),4);
 C := Curve(P,[y*w + z*t, 2*x^2 + y*w + y*t - z*t, y^2 + 4*y*z - 4*z^2 + w^2 + w*t]);
 
-/************************************Optional code to verify that model matches with Zywina's repo**************
+/************************************Optional code to verify that LMFDB model matches with that obtained from Zywina's code**************
 
 for tuple in data211 do;
           if tuple[1] eq "32.96.5.be.1" then
