@@ -7,7 +7,12 @@ The single rank one elliptic curve factor of the Jacobian has 8 points over F5.
 NOT bielliptic. 
 ******************************************************************************/
 P<x,y,z,w>:=ProjectiveSpace(Rationals(),3);
-C := Curve(P,[12*x^2 - 13*x*y - x*z + x*w + 12*y^2 - y*z + y*w - z^2 + z*w - w^2, 160*x^2*y - 21*x^2*z + 44*x^2*w + 172*x*y^2 + 31*x*y*z - 22*x*y*w - 23*x*z^2 + 16*x*z*w - 55*x*w^2 + 49*y^3 + 89*y^2*z - 66*y^2*w + 87*y*z^2 - 94*y*z*w + 55*y*w^2 + 10*z^3 - 39*z^2*w + 6*z*w^2 + 11*w^3]);
+// Model taken from Zywina's code
+C := Curve(P,[-12*x^2 - 13*x*y - 12*y^2 + x*z - y*z + z^2 - x*w + y*w - z*w + w^2,
+-396*x^3 - 1513*x^2*y - 1225*x*y^2 - 973*y^3 + 337*x^2*z + 399*x*y*z + 337*y^2*z - 51*x*z^2 + 51*y*z^2 - 40*z^3 - 132*x^2*w - 143*x*y*w - 132*y^2*w + 22*x*z*w - 22*y*z*w + 33*z^2*w]);
+
+
+
 C5 := Curve(Reduction(C,5)); 
 S := AutomorphismGroup(C5); 
 
