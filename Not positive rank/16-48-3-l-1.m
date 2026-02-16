@@ -3,12 +3,11 @@
 Here is a summary of the argument.
 
 Let C be the modular curve with lmfdb label 16.48.3.l.1. 
-Using a singular model, we find there are three genus one quotients by an involution. Apriori there could be more quotients from canonical model but these three quotients correspond to three elliptic curves in Jacobian decomposition.
-All of these are pointless so this is not positive rank bielliptic.
+We compute the automorphism group over Q, we find there are three genus one quotients by an involution. All are pointless.
 
 ******************************************************************************/
-P<x,y,z> := ProjectiveSpace(Rationals(),2);
-C := Curve(P,[8*x^6 - 8*x^4*y^2 + 12*x^4*z^2 + 2*x^2*y^4 + 8*x^2*y^2*z^2 + 6*x^2*z^4 + y^4*z^2 - 2*y^2*z^4 + z^6]);
+P<x,y,z,w,t,u>:=ProjectiveSpace(Rationals(),5);
+C:=Curve(P,[2*x*t + z^2 + w*u, -2*x*w - x*u + y*z, -2*x*t + 2*y^2 + w*u, 4*w^2 + 2*t^2 + u^2, 4*x^2 - x*t + y^2, 4*x*z + 2*y*w + y*u - z*t, 8*x*y + 2*y*t + 2*z*w + z*u]);
 
 S := AutomorphismGroup(C); 
 auts := [];
@@ -38,6 +37,4 @@ end if;
 end for;
 l; // It is easy to observe that all genus 1 quotients are pointless
 
-Jacobian(l[1]); //corresponds to 128.2.a.d
-Jacobian(l[2]); //corresponds to 32.2.a.a
-Jacobian(l[3]); //corresponds to 128.2.a.a
+
