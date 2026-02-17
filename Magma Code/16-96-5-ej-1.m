@@ -35,7 +35,8 @@ end if;
 
 end for;
 
-#l; //2
+assert #l eq 2; 
+
 C1:=l[1];
 
 //constructing a simple model for C1
@@ -94,6 +95,6 @@ f:=5*x^4+44*x^3+(37*4)*x^2+(29*8*x)+(37*4); //constructing an isomorphic curve
 H := HyperellipticCurve(f);
 pt:=Points(H:Bound:=100)[1];
 E:=EllipticCurve(H,pt);
-Rank(E); //1 true
+assert Rank(E) eq 1; 
     
     
