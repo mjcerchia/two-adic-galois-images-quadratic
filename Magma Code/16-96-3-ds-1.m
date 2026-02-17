@@ -20,4 +20,4 @@ CG,prj := CurveQuotient(AG);
 Pts:=PointSearch(CG,10000);
 
 E:=EllipticCurve(CG,Pts[1]);
-Rank(E); // 1 true
+assert Rank(E) eq 1; 
