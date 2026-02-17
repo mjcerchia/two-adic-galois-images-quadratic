@@ -88,4 +88,4 @@ phi := map<C1 -> P | [x1,x2,x3]>;
 C2:=Image(phi); 
 Pt:=PointSearch(C2,100)[1];
 E:=EllipticCurve(C2,Pt);
-Rank(E); // 1 true
+assert Rank(E) eq 1; 
